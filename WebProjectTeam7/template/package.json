@@ -1,0 +1,19 @@
+{
+    "name": "web-project-1",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "type": "module",
+    
+    "scripts": {
+        "start": "node index.js",
+        "doc": "jsdoc",
+        "lint": "eslint."
+    },
+    "keywords": [],
+    "author": "Web Team 7",
+    "license": "ISC",
+    "devDependencies": {
+        "jsdoc": "^4.0.3"
+    }
+}

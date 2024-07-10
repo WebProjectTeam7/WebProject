@@ -1,4 +1,6 @@
-import { ABOUT, TRENDING, CONTAINER_SELECTOR, FAVORITES, HOME } from '../common/constants.js';
+import { ABOUT, TRENDING, UPLOAD, FAVORITES, HOME, CONTAINER_SELECTOR } from '../common/constants.js';
+import { q, setActiveNav } from './helpers.js';
+import { toUploadView } from '../view/upload-view.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -17,6 +19,10 @@ export const loadPage = (page = '') => {
             setActiveNav(FAVORITES);
             return renderFavorites();
 
+        case UPLOAD:
+            setActiveNav(UPLOAD);
+            return renderUpload();
+
         case ABOUT:
             setActiveNav(ABOUT);
             return renderAbout();
@@ -30,12 +36,16 @@ export const loadPage = (page = '') => {
 // private functions
 
 const renderHome = () => {
-    q(CONTAINER_SELECTOR).innerHTML = toHomeView();
+    // q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
 const renderTrending = async () => { };
 
 const renderFavorites = async () => { };
+
+const renderUpload = () => {
+    q(CONTAINER_SELECTOR).innerHTML = toUploadView();
+};
 
 const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();

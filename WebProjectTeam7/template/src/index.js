@@ -9,7 +9,12 @@ import { renderSearchItems } from './events/search-events.js';
 document.addEventListener('DOMContentLoaded', () => {
 
     // add global listener
-    document.addEventListener('click', e => {
+    document.addEventListener('click', async (e) => {
+
+        // nav events
+        if (e.target.classList.contains('nav-link')) {
+        loadPage(e.target.getAttribute('data-page'));
+        }
   
         if(e.target.id === 'searchButton') {
             const query = q('#search').value.trim();

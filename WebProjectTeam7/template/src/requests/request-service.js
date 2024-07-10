@@ -1,4 +1,4 @@
-import { SEARCH_URL } from "../common/giphy-constants";
+import { SEARCH_URL } from "../common/giphy-constants.js";
 
 
 export const loadTrending = async () => { }

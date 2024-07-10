@@ -4,16 +4,19 @@
     "description": "",
     "main": "index.js",
     "type": "module",
-    
     "scripts": {
         "start": "node index.js",
         "doc": "jsdoc",
-        "lint": "eslint."
+        "lint": "eslint ."
     },
     "keywords": [],
     "author": "Web Team 7",
     "license": "ISC",
     "devDependencies": {
-        "jsdoc": "^4.0.3"
+        "@eslint/js": "^9.6.0",
+        "eslint": "^9.6.0",
+        "eslint-config-google": "^0.14.0",
+        "eslint-plugin-jsdoc": "^48.6.0",
+        "globals": "^15.8.0"
     }
 }

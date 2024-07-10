@@ -2,6 +2,8 @@ import { HOME } from './common/constants.js';
 import { loadPage } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
 import { searchGiphs } from './requests/request-service.js';
+import { renderSearchItems } from './events/search-events.js';
+
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(e.target.id === 'searchButton') {
             const query = q('#search').value.trim();
             if (query) {
-                searchGiphs(query);
+                renderSearchItems(query);
             }
         }
   

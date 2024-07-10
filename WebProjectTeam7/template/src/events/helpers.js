@@ -14,3 +14,11 @@ export const setActiveNav = (page) => {
             : element.classList.remove('active')
         );
 };
+
+export const renderFavoriteStatus = (movieId) => {
+    const favorites = getFavorites();
+  
+    return favorites.includes(movieId)
+      ? `<span class="favorite active" data-movie-id="${movieId}">${FULL_HEART}</span>`
+      : `<span class="favorite" data-movie-id="${movieId}">${EMPTY_HEART}</span>`;
+  };

@@ -1,14 +1,19 @@
+import { SEARCH_URL } from "../common/giphy-constants";
+
+
 export const loadTrending = async () => { }
 
 export const loadSingleGif = async () => { }
 
-export const loadSearchGifs = async () => { }
+export const loadSearchGifs = async () => { 
+    const response = await fetch(`${SEARCH_URL}${searchTerm}`);
+    const gifs = await response.json();
+    return gifs;
+}
 
 export const uploadGif = async () => { }
 
 export const searchGiphs = async (searchTerm = '') => {
-    const response = await fetch(`SEARCH_URL${searchTerm}`);
-    const movies = await response.json();
-  
-    return movies;
+    const gifs = await loadSearchGifs(searchTerm);
+    return gifs;
   };

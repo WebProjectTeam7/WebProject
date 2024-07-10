@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('click', e => {
   
         if(e.target.id === 'searchButton') {
-            const query = q('search').value.trim();
+            const query = q('#search').value.trim();
             if (query) {
                 searchGiphs(query);
             }
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     });
   
-    q('input#search').addEventListener('input', e => {
+    q('#search').addEventListener('input', e => {
         renderSearchItems(e.target.value);
       });
     

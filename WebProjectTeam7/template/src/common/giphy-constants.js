@@ -4,7 +4,7 @@ export const API_KEY_2 = 'QP47tkC3QL0v19NaNwo3Ebt678w7fsr5'; // for temporary te
 
 const LIMIT = 20;
 
-export const TRENDING_URL = '';
+export const TRENDING_URL = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${LIMIT}`;
 
 export const SEARCH_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&limit=${LIMIT}&q=`;
 

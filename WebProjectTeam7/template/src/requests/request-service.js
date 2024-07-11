@@ -1,6 +1,6 @@
 import { SEARCH_URL, UPLOAD_URL } from "../common/giphy-constants.js";
 
-
+const giphs = [];
 export const loadTrending = async () => { }
 
 export const loadSingleGif = async () => { }
@@ -24,14 +24,19 @@ export const uploadGif = async (input) => {
 
 export const loadSearchGifs = async (searchTerm = '') => { 
     try {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI&limit=20&q=${searchTerm}`);
-    const gifs = await response.json();
-    return gifs;
+    const response = await fetch(`${SEARCH_URL}${searchTerm}`);
+    const giphs = await response.json();
+    return giphs.data;
     } catch (error) {
-        console.error(`Error loadSearchGif ${error}`);
+        console.error(`Error loadSearchGiph ${error}`);
     }
 }
 
-export const searchGiphs = (title = '') => title
-  ? giphs.filter(m => m.title.toLowerCase().includes(title.toLowerCase()))
-  : giphs;
+export const searchGiphs = async (title = '') => {
+    if (title) {
+      const searchResults = await loadSearchGifs(title);
+      return searchResults;
+    } else {
+      return giphs;
+    }
+}

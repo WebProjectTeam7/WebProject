@@ -12,7 +12,9 @@ export const toGifSimple = (gif) => `
   <h1>${gif.title}</h1>
   <img src="${gif.images.fixed_height.url}" alt="${gif.title}"><br>
   <button class="details-button" data-gif-id="${gif.id}">View Details</button>
-  <button class="favorite-button" data-gif-id="${gif.id}">Add to Favorites</button>
+  <button class="favorite-button" data-gif-id="${gif.id}">
+  ${renderFavoriteStatus(gif.id) === '❤' ? 'Remove from Favorites' : 'Add to Favorites'}
+  </button>
 </div>
 `;
 

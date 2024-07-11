@@ -62,7 +62,7 @@ const renderFavorites = async () => {
     const giphyPromises = favorites.map(id => loadSingleGif(id));
 
     const result = await Promise.all(giphyPromises);
-    q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(result);
+    q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(result.filter(gif => gif && gif.images && gif.images.fixed_height));;
 };
 
 const renderUpload = () => {

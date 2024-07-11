@@ -29,9 +29,15 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         if (e.target.classList.contains('favorite-button')) {
             const gifId = e.target.getAttribute('data-gif-id');
-            addFavorite(gifId);
-            alert('GIF added to favorites!');
-        }
+            const favorites = getFavorites();
+            if (favorites.includes(gifId)) {
+              removeFavorite(gifId);
+              e.target.innerHTML = 'Add to Favorites';
+            } else {
+              addFavorite(gifId);
+              e.target.innerHTML = 'Remove from Favorites';
+            }
+          }
 
         if (e.target.classList.contains('details-button')) {
             const gifId = e.target.getAttribute('data-gif-id');

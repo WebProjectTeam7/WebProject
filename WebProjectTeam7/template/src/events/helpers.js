@@ -17,10 +17,17 @@ export const setActiveNav = (page) => {
         );
 };
 
-export const renderFavoriteStatus = async (giphyId) => {
-    const favorites = await getFavorites();
+// export const renderFavoriteStatus = async (giphyId) => {
+//     const favorites = await getFavorites();
   
+//     return favorites.includes(giphyId)
+//       ? `<span class="favorite active" data-movie-id="${giphyId}">${FULL_HEART}</span>`
+//       : `<span class="favorite" data-movie-id="${giphyId}">${EMPTY_HEART}</span>`;
+//   };
+
+  export const renderFavoriteStatus = (giphyId) => {
+    const favorites = getFavorites();
     return favorites.includes(giphyId)
-      ? `<span class="favorite active" data-movie-id="${giphyId}">${FULL_HEART}</span>`
-      : `<span class="favorite" data-movie-id="${giphyId}">${EMPTY_HEART}</span>`;
+      ? FULL_HEART
+      : EMPTY_HEART;
   };

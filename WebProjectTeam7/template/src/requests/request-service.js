@@ -1,9 +1,26 @@
-import { SEARCH_URL } from "../common/giphy-constants.js";
+import { SEARCH_URL, UPLOAD_URL } from "../common/giphy-constants.js";
 
 
 export const loadTrending = async () => { }
 
 export const loadSingleGif = async () => { }
+
+export const uploadGif = async (input) => {
+    const formData = new FormData();
+    input instanceof File ? formData.append('file', input) : formData.append('source_image_url', input);
+    try{
+        const response = await fetch(UPLOAD_URL, {
+            method: 'POST', 
+            body: formData
+        });
+        const gif = await response.json();
+        
+        alert('GIF uploaded successfully!');
+    } catch (e) {
+        console.error('Error: ', e.message);
+        alert('Failed to upload GIF!');
+    }
+}
 
 export const loadSearchGifs = async (searchTerm = '') => { 
     try {
@@ -14,8 +31,6 @@ export const loadSearchGifs = async (searchTerm = '') => {
         console.error(`Error loadSearchGif ${error}`);
     }
 }
-
-export const uploadGif = async () => { }
 
 export const searchGiphs = (title = '') => title
   ? giphs.filter(m => m.title.toLowerCase().includes(title.toLowerCase()))

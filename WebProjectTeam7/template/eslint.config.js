@@ -18,7 +18,7 @@ export default [
       ...jsdoc.configs.recommended.rules, // Recommended JSDoc rules
       'max-len': ['error', {
         'code': 80,
-        'tabWidth': 2,
+        'tabWidth': 4,
         'ignoreComments': true,
         'ignoreTrailingComments': true,
         'ignoreUrls': true,
@@ -32,7 +32,7 @@ export default [
       'default-case': 'error',
       'dot-notation': 'error',
       'eqeqeq': 'error',
-      'func-style': ['error', 'declaration'],
+      'func-style': ['error', 'arrow'],
       'no-alert': 'error',
       'no-div-regex': 'error',
       'no-else-return': 'error',

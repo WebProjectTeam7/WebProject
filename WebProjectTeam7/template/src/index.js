@@ -1,9 +1,8 @@
 import { HOME } from './common/constants.js';
-import { loadPage } from './events/navigation-events.js';
+import { loadPage, renderGiftsDetails, renderTrending } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
 import { searchGiphs, uploadGif } from './requests/request-service.js';
 import { renderSearchItems } from './events/search-events.js';
-import { renderTrending, renderGiftsDetails } from './events/navigation-events.js';
 import { addFavorite } from './data/favorites-data.js';
 
 
@@ -28,14 +27,15 @@ document.addEventListener('DOMContentLoaded', async () => {
            await renderTrending(+e.target.getAttribute('data-gif-id'));
         }
 
-        if (e.target.classList.contains('vie-gif-details')) {
-           renderGiftsDetails(+e.target.getAttribute('data-gif'));
-        }
-
         if (e.target.classList.contains('favorite-button')) {
             const gifId = e.target.getAttribute('data-gif-id');
             addFavorite(gifId);
             alert('GIF added to favorites!');
+        }
+
+        if (e.target.classList.contains('details-button')) {
+            const gifId = e.target.getAttribute('data-gif-id');
+            renderGiftsDetails(gifId);
         }
     });
 

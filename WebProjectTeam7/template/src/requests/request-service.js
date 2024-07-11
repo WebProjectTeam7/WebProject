@@ -1,4 +1,4 @@
-import { SEARCH_URL, UPLOAD_URL, TRENDING_URL } from '../common/giphy-constants.js';
+import { SEARCH_URL, UPLOAD_URL, TRENDING_URL, GET_ID_URL } from '../common/giphy-constants.js';
 import { addUpload } from '../data/uploads-data.js';
 
 
@@ -16,7 +16,7 @@ const giphs = [];
 
 export const loadSingleGif = async (gifId) => {
     try {
-        const response = await fetch(`${SEARCH_URL}${gifId}`);
+        const response = await fetch(GET_ID_URL(gifId));
         const gif = await response.json();
 
         return gif.data;
@@ -37,7 +37,8 @@ export const uploadGif = async (input) => {
             throw new Error(`Network error: `, response.statusText);
         }
         const gif = await response.json();
-        addUpload(gif.id);
+      
+        addUpload(gif.data.id);
 
         alert('GIF uploaded successfully!');
     } catch (e) {

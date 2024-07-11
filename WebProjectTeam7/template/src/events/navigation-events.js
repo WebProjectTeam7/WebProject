@@ -70,7 +70,7 @@ const renderUpload = () => {
 const renderMyUploads = async () => {
     const gifsIds = getUploads();
     const gifs = await Promise.all(gifsIds.map((id) => loadSingleGif(id)));
-    
+
     q(CONTAINER_SELECTOR).innerHTML = toMyUploadsView(gifs);
 }
 

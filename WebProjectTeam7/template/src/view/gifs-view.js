@@ -11,6 +11,7 @@ export const toGifSimple = (gif) => `
 <div class="gif">
   <h1>${gif.title}</h1>
   <img src="${gif.images.fixed_height.url}" alt="${gif.title}"><br>
+  <button class="details-button" data-gif-id="${gif.id}">View Details</button>
   <button class="favorite-button" data-gif-id="${gif.id}">Add to Favorites</button>
 </div>
 `;
@@ -24,14 +25,12 @@ export const toSingleGifView = (gif) => `
 </div>
 `;
 
-const toGifDetailed = (movie) => `
+const toGifDetailed = (gif) => `
 <div class="gif-detailed">
   <div class="poster">
-    <img src="${gif.poster}">
+    <img src="${gif.images.fixed_height.url}" alt="${gif.title}">
   </div>
   <div class="gif-info">
-    <p>Genre: ${gif.genre}</p>
-    <p>Plot: ${gif.description}</p>
   </div>
 </div>
 `;

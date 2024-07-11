@@ -3,7 +3,7 @@ import { q, setActiveNav } from './helpers.js';
 import { toUploadView } from '../view/upload-view.js';
 import { toMyUploadsView } from '../view/my-uploads-view.js';
 import { getUploads } from '../data/uploads-data.js';
-import { loadSingleGif } from '../requests/request-service.js';
+import { loadSingleGif, loadTrending  } from '../requests/request-service.js';
 import { getFavorites } from '../data/favorites-data.js';
 import { toFavoritesView } from '../view/favorites-view.js';
 
@@ -51,7 +51,7 @@ const renderHome = () => {
     // q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
-const renderTrending = async () => { 
+export const renderTrending = async () => { 
     const trending = await loadTrending();
 
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending)
@@ -81,7 +81,5 @@ const renderAbout = () => {
 };
 
 export const renderGiftsDetails = async (categoryId = null) => {
-    const gif = await loadDisplayGifDetails();
-
-    q(CONTAINER_SELECTOR).innerHTML = toSingleGifView(gif)
+    q(CONTAINER_SELECTOR).innerHTML = toSingleGifView()
 }

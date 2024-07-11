@@ -34,10 +34,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.addEventListener('submit', async (e) => {
 
         if (e.target.classList.contains('upload-form')) {
-            e.preventDefault();
             try {
                 const file = document.getElementById('gif-file').files[0];
-                const url = document.getElementById('gif-url').value;
+                // const url = document.getElementById('gif-url').value;
                 if (!file && !url) {
                     return alert('Please select a GIF file or enter a GIF URL to upload.');
                 }

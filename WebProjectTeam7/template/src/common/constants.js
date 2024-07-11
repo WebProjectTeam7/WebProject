@@ -6,6 +6,8 @@ export const FAVORITES = 'favorites';
 
 export const UPLOAD = 'upload';
 
+export const MY_UPLOADS = 'my-uploads';
+
 export const ABOUT = 'about';
 
 export const CONTAINER_SELECTOR = '#container';

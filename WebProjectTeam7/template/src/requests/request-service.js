@@ -6,10 +6,10 @@ export const loadTrending = async () => {
     try {
         const response = await fetch(TRENDING_URL);
         const gif = await response.json();
-console.log(gif);
-        return gif.data
+
+        return gif.data;
     } catch (error) {
-        console.error(`Error loading trending GIFs: ${error}`)
+        console.error(`Error loading trending GIFs: ${error}`);
     }
 }
 const giphs = [];
@@ -19,9 +19,9 @@ export const loadSingleGif = async (gifId) => {
         const response = await fetch(`${SEARCH_URL}${gifId}`);
         const gif = await response.json();
 
-        return gif.data
+        return gif.data;
     } catch (error) {
-        console.error(`Error loading GIF: ${error}`)
+        console.error(`Error loading GIF: ${error}`);
     }
  }
 

@@ -6,7 +6,7 @@ export const API_KEY_3 = 'FgmzyU2tFbqdZELwi0q7RRN6Rur6OqAf'
 
 const LIMIT = 20;
 
-export const GET_ID_URL = (id) => `https://api.giphy.com/v1/gifs/${id}/?api_key=${API_KEY_3}`;
+export const GET_ID_URL = (id) => `https://api.giphy.com/v1/gifs/${id}/?api_key=${API_KEY_2}`;
 
 export const TRENDING_URL = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY_3}&limit=${LIMIT}`;
 

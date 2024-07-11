@@ -43,7 +43,7 @@ const renderHome = () => {
     // q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
-const renderTrending = async () => { 
+export const renderTrending = async () => { 
     const trending = await loadTrending();
 
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending)

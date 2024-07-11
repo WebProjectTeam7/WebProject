@@ -3,7 +3,7 @@ import { loadPage } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
 import { searchGiphs, uploadGif } from './requests/request-service.js';
 import { renderSearchItems } from './events/search-events.js';
-
+import { renderTrending, renderGiftsDetails } from './events/navigation-events.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -20,6 +20,14 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (query) {
                 renderSearchItems(query);
             }
+        }
+
+        if (e.target.classList.contains('view-trending-gif-btn')) {
+            renderTrending(+e.target.getAttribute('data-gif-id'))
+        }
+
+        if (e.target.classList.contains('vie-gif-details')) {
+            renderGiftsDetails(+e.target.getAttribute('data-gif'))
         }
     });
 

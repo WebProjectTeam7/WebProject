@@ -7,6 +7,8 @@ import { loadSingleGif, loadTrending  } from '../requests/request-service.js';
 import { getFavorites } from '../data/favorites-data.js';
 import { toFavoritesView } from '../view/favorites-view.js';
 import { toTrendingView } from '../view/gifs-view.js';
+import { toAboutView } from '../view/about-view.js';
+import { toHomeView } from '../view/home-view.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -46,7 +48,7 @@ export const loadPage = (page = '') => {
 // private functions
 
 const renderHome = () => {
-    // q(CONTAINER_SELECTOR).innerHTML = toHomeView();
+    q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
 export const renderTrending = async () => { 

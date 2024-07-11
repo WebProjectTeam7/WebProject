@@ -40,8 +40,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     document.addEventListener('submit', async (e) => {
+        
 
         if (e.target.classList.contains('upload-form')) {
+            const spinner = document.querySelector('.spinner');
+            spinner.style.display = 'block';
+
             try {
                 const file = document.getElementById('gif-file').files[0];
                 // const url = document.getElementById('gif-url').value;
@@ -51,6 +55,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 await (file ? uploadGif(file) : uploadGif(url));
             } catch (e) {
                 console.error('Error: ', e.message);
+            } finally {
+                spinner.style.display = 'none';
             }
         }
     });

@@ -11,6 +11,7 @@ export const toGifSimple = (gif) => `
 <div class="gif">
   <h1>${gif.title}</h1>
   <img src="${gif.images.fixed_height.url}" alt="${gif.title}"><br>
+  <button class="favorite-button" data-gif-id="${gif.id}">Add to Favorites</button>
 </div>
 `;
 

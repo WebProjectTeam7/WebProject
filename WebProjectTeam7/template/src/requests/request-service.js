@@ -22,9 +22,10 @@ export const uploadGif = async (input) => {
     }
 }
 
+const giphs = [];
 export const loadSearchGifs = async (searchTerm = '') => { 
     try {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI&limit=20&q=${searchTerm}`);
+    const response = await fetch(`${SEARCH_URL}${searchTerm}`);
     const gifs = await response.json();
     return gifs;
     } catch (error) {
@@ -32,6 +33,11 @@ export const loadSearchGifs = async (searchTerm = '') => {
     }
 }
 
-export const searchGiphs = (title = '') => title
-  ? giphs.filter(m => m.title.toLowerCase().includes(title.toLowerCase()))
-  : giphs;
+export const searchGiphs = async (title = '') => {
+    if (title) {
+      const searchResults = await loadSearchGifs(title);
+      return searchResults;
+    } else {
+      return giphs;
+    }
+  };

@@ -4,6 +4,7 @@ import { toUploadView } from '../view/upload-view.js';
 import { toMyUploadsView } from '../view/my-uploads-view.js';
 import { getUploads } from '../data/uploads-data.js';
 import { loadSingleGif } from '../requests/request-service.js';
+import { getFavorites } from '../data/favorites-data.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -52,7 +53,13 @@ const renderTrending = async () => {
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending)
 };
 
-const renderFavorites = async () => { };
+const renderFavorites = async () => {
+    const favorites = getFavorites();
+    const giphyPromises = favorites.map(id => loadSingleGif(id));
+
+    const result = await Promise.all(giphyPromises);
+    q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(result);
+};
 
 const renderUpload = () => {
     q(CONTAINER_SELECTOR).innerHTML = toUploadView();

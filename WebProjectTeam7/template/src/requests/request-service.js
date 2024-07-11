@@ -1,10 +1,10 @@
-import { SEARCH_URL, UPLOAD_URL } from '../common/giphy-constants.js';
+import { SEARCH_URL, UPLOAD_URL, TRENDING_URL } from '../common/giphy-constants.js';
 import { addUpload } from '../data/uploads-data.js';
 
 
 export const loadTrending = async () => {
     try {
-        const response = await fetch(`TRENDING_URL`);
+        const response = await fetch(TRENDING_URL);
         const gif = await response.json();
 
         return gif

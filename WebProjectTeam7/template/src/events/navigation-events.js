@@ -6,6 +6,7 @@ import { getUploads } from '../data/uploads-data.js';
 import { loadSingleGif, loadTrending  } from '../requests/request-service.js';
 import { getFavorites } from '../data/favorites-data.js';
 import { toFavoritesView } from '../view/favorites-view.js';
+import { toTrendingView } from '../view/gifs-view.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -36,9 +37,6 @@ export const loadPage = (page = '') => {
             setActiveNav(ABOUT);
             return renderAbout();
 
-        case DETAILS:
-            setActiveNav(DETAILS);
-            return renderGiftsDetails();
         /* if the app supports error login, use default to log mapping errors */
         default: return null;
     }

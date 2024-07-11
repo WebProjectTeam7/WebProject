@@ -24,7 +24,9 @@ export const uploadGif = async (input) => {
             body: formData
         });
         const gif = await response.json();
-        
+        console.log(gif);
+        //addUpload(gif)
+
         alert('GIF uploaded successfully!');
     } catch (e) {
         console.error('Error: ', e.message);

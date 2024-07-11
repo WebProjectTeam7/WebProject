@@ -1,4 +1,4 @@
-import { SEARCH_URL } from "../common/giphy-constants.js";
+import { SEARCH_URL, UPLOAD_URL } from "../common/giphy-constants.js";
 
 export const loadDisplayTrendingDetails = async () => {
   try {
@@ -22,7 +22,7 @@ export const loadDisplayGifDetails = async () => {
   }
 };
 
-export const loadSingleGif = async () => {};
+export const loadSingleGif = async () => { }
 
 export const loadSearchGifs = async (searchTerm = "") => {
   try {
@@ -31,12 +31,12 @@ export const loadSearchGifs = async (searchTerm = "") => {
     );
     const gifs = await response.json();
     return gifs;
-  } catch (error) {
-    console.error(`Error loadSearchGif ${error}`);
-  }
-};
+    } catch (error) {
+        console.error(`Error loadSearchGif ${error}`);
+    }
+}
 
-export const uploadGif = async () => {};
+export const uploadGif = async () => { }
 
 export const searchGiphs = (title = "") =>
   title

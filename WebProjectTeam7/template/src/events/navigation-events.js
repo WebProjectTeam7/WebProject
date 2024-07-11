@@ -1,9 +1,6 @@
 import { ABOUT, TRENDING, UPLOAD, FAVORITES, HOME, CONTAINER_SELECTOR } from '../common/constants.js';
 import { q, setActiveNav } from './helpers.js';
 import { toUploadView } from '../view/upload-view.js';
-import { loadDisplayGifDetails } from '../requests/request-service.js';
-import { toSingleGifView } from '../view/gifs-view.js';
-import { toTrendingView } from '../view/gifs-view.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -25,6 +22,10 @@ export const loadPage = (page = '') => {
         case UPLOAD:
             setActiveNav(UPLOAD);
             return renderUpload();
+        
+        case MY_UPLOADS:
+            setActiveNav(MY_UPLOADS);
+            return renderMyUploads();    
 
         case ABOUT:
             setActiveNav(ABOUT);
@@ -53,6 +54,10 @@ const renderFavorites = async () => { };
 const renderUpload = () => {
     q(CONTAINER_SELECTOR).innerHTML = toUploadView();
 };
+
+const renderMyUploads = () => {
+    q(CONTAINER_SELECTOR).innerHTML = toMyUploadsView();
+}
 
 const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();

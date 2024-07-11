@@ -5,7 +5,7 @@ import { addUpload } from '../data/uploads-data.js';
 export const loadTrending = async () => {
     try {
         const response = await fetch(TRENDING_URL);
-        const gif = await response.json();
+        const gif = await response.data.json();
 
         return gif
     } catch (error) {
@@ -17,7 +17,7 @@ const giphs = [];
 export const loadSingleGif = async (gifId) => {
     try {
         const response = await fetch(`${SEARCH_URL}${gifId}`);
-        const gif = await response.json();
+        const gif = await response.data.json();
 
         return gif
     } catch (error) {

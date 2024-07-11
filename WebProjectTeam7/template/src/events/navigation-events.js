@@ -47,7 +47,7 @@ export const loadPage = (page = '') => {
 // private functions
 
 const renderHome = () => {
-    // q(CONTAINER_SELECTOR).innerHTML = toHomeView();
+    q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
 export const renderTrending = async () => { 

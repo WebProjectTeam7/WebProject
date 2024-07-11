@@ -8,6 +8,7 @@ import { getFavorites } from '../data/favorites-data.js';
 import { toFavoritesView } from '../view/favorites-view.js';
 import { toTrendingView } from '../view/gifs-view.js';
 import { toAboutView } from '../view/about-view.js';
+import { toAboutView } from '../view/about-view.js';
 
 // public API
 export const loadPage = (page = '') => {

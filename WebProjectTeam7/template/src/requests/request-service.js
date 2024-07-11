@@ -1,7 +1,9 @@
 import { SEARCH_URL, UPLOAD_URL } from "../common/giphy-constants.js";
 
 
-export const loadTrending = async () => { }
+export const loadTrending = async () => {
+
+ }
 
 export const loadSingleGif = async () => { }
 

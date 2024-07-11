@@ -2,7 +2,14 @@ import { SEARCH_URL, UPLOAD_URL } from "../common/giphy-constants.js";
 
 
 export const loadTrending = async () => {
+    try {
+        const response = await fetch(`${SEARCH_URL}trending`);
+        const gifs = await response.json();
 
+        return gifs
+    } catch (error) {
+        console.error(`Error loading trending GIFs: ${error}`)
+    }
  }
 
 export const loadSingleGif = async () => { }

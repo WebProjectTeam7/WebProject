@@ -23,11 +23,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (e.target.classList.contains('view-trending-gif-btn')) {
-            renderTrending(+e.target.getAttribute('data-gif-id'))
+           await renderTrending(+e.target.getAttribute('data-gif-id'))
         }
 
         if (e.target.classList.contains('vie-gif-details')) {
-            renderGiftsDetails(+e.target.getAttribute('data-gif'))
+           await renderGiftsDetails(+e.target.getAttribute('data-gif'))
         }
     });
 

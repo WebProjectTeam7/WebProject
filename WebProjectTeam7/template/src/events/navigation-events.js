@@ -52,7 +52,7 @@ const renderHome = () => {
 export const renderTrending = async () => { 
     const trending = await loadTrending();
 
-    q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending)
+    q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending);
 };
 
 const renderFavorites = async () => {
@@ -78,6 +78,6 @@ const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();
 };
 
-export const renderGiftsDetails = async (categoryId = null) => {
+export const renderGiftsDetails = (categoryId = null) => {
     q(CONTAINER_SELECTOR).innerHTML = toSingleGifView()
 }

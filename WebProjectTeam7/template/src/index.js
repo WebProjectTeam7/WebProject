@@ -5,7 +5,6 @@ import { searchGiphs, uploadGif } from './requests/request-service.js';
 import { renderSearchItems } from './events/search-events.js';
 
 
-
 document.addEventListener('DOMContentLoaded', async () => {
 
     // add global listener

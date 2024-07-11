@@ -43,10 +43,10 @@ const renderHome = () => {
     // q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
-const renderTrendingGifs = async () => { 
-    const trending = await loadTrendingGifs();
+const renderTrending = async () => { 
+    const trending = await loadTrending();
 
-    q(CONTAINER_SELECTOR).innerHTML = toTrendingView()
+    q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending)
 };
 
 const renderFavorites = async () => { };
@@ -64,7 +64,7 @@ const renderAbout = () => {
 };
 
 export const renderGiftsDetails = async (categoryId = null) => {
-    const gifts = await loadDisplayGifDetails();
+    const gif = await loadDisplayGifDetails();
 
     q(CONTAINER_SELECTOR).innerHTML = toSingleGifView(gif)
 }

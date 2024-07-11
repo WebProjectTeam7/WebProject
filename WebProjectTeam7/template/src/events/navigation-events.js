@@ -5,6 +5,7 @@ import { toMyUploadsView } from '../view/my-uploads-view.js';
 import { getUploads } from '../data/uploads-data.js';
 import { loadSingleGif, loadTrending  } from '../requests/request-service.js';
 import { getFavorites } from '../data/favorites-data.js';
+import { toFavoritesView } from '../view/favorites-view.js';
 
 // public API
 export const loadPage = (page = '') => {

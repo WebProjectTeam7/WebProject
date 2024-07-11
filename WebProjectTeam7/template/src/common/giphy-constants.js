@@ -2,6 +2,8 @@ export const API_KEY = 'OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI';
 
 export const API_KEY_2 = 'QP47tkC3QL0v19NaNwo3Ebt678w7fsr5'; // for temporary testing
 
+export const API_KEY_3 = 'FgmzyU2tFbqdZELwi0q7RRN6Rur6OqAf'
+
 const LIMIT = 20;
 
 export const TRENDING_URL = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${LIMIT}`;

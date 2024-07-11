@@ -29,6 +29,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (e.target.classList.contains('vie-gif-details')) {
            await renderGiftsDetails(+e.target.getAttribute('data-gif'))
         }
+
+        if (e.target.classList.contains('favorite-button')) {
+            const gifId = e.target.getAttribute('data-gif-id');
+            addFavorite(gifId);
+            alert('GIF added to favorites!');
+        }
     });
 
     document.addEventListener('submit', async (e) => {

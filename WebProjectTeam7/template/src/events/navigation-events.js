@@ -1,4 +1,4 @@
-import { ABOUT, TRENDING, UPLOAD, FAVORITES, HOME, CONTAINER_SELECTOR } from '../common/constants.js';
+import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITES, HOME, CONTAINER_SELECTOR } from '../common/constants.js';
 import { q, setActiveNav } from './helpers.js';
 import { toUploadView } from '../view/upload-view.js';
 import { toMyUploadsView } from '../view/my-uploads-view.js';
@@ -35,6 +35,9 @@ export const loadPage = (page = '') => {
             setActiveNav(ABOUT);
             return renderAbout();
 
+        case DETAILS:
+            setActiveNav(DETAILS);
+            return renderGiftsDetails();
         /* if the app supports error login, use default to log mapping errors */
         default: return null;
     }

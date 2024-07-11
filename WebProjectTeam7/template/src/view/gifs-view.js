@@ -13,3 +13,12 @@ export const toGifSimple = (gif) => `
   <img src="${gif.images.fixed_height.url}" alt="${gif.title}"><br>
 </div>
 `;
+
+export const toSingleGifView = (gif) => `
+<div id="gifs">
+  <h1>${gif.title}</h1>
+  <div class="content">
+    ${toGifDetailed(gif)}
+  </div>
+</div>
+`;

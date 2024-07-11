@@ -1,6 +1,9 @@
 import { ABOUT, TRENDING, UPLOAD, FAVORITES, HOME, CONTAINER_SELECTOR } from '../common/constants.js';
 import { q, setActiveNav } from './helpers.js';
 import { toUploadView } from '../view/upload-view.js';
+import { loadDisplayGifDetails } from '../requests/request-service.js';
+import { toSingleGifView } from '../view/gifs-view.js';
+import { toTrendingView } from '../view/gifs-view.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -39,7 +42,11 @@ const renderHome = () => {
     // q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
-const renderTrending = async () => { };
+const renderTrendingGifs = async () => { 
+    const trending = await loadTrendingGifs();
+
+    q(CONTAINER_SELECTOR).innerHTML = to toTrendingView(gif)
+};
 
 const renderFavorites = async () => { };
 
@@ -50,3 +57,9 @@ const renderUpload = () => {
 const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();
 };
+
+export const renderGiftsDetails = async (categoryId = null) => {
+    const gifts = await loadDisplayGifDetails();
+
+    q(CONTAINER_SELECTOR).innerHTML = toSingleGifView(gif)
+}

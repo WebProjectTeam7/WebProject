@@ -1,22 +1,44 @@
 import { SEARCH_URL } from "../common/giphy-constants.js";
 
+export const loadDisplayTrendingDetails = async () => {
+  try {
+    const response = await fetch(``);
+    const trending = await response.json();
 
-export const loadTrending = async () => { }
+    return trending;
+  } catch (error) {
+    console.error(`Error loadDisplayTrendingDetails ${error}`);
+  }
+};
 
-export const loadSingleGif = async () => { }
+export const loadDisplayGifDetails = async () => {
+  try {
+    const response = await fetch(``);
+    const gifs = await response.json();
 
-export const loadSearchGifs = async (searchTerm = '') => { 
-    try {
-    const response = await fetch(`https://api.giphy.com/v1/gifs/search?api_key=OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI&limit=20&q=${searchTerm}`);
+    return gifs;
+  } catch (error) {
+    console.error(`Error loadDisplayGifDetails ${error}`);
+  }
+};
+
+export const loadSingleGif = async () => {};
+
+export const loadSearchGifs = async (searchTerm = "") => {
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/search?api_key=OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI&limit=20&q=${searchTerm}`
+    );
     const gifs = await response.json();
     return gifs;
-    } catch (error) {
-        console.error(`Error loadSearchGif ${error}`);
-    }
-}
+  } catch (error) {
+    console.error(`Error loadSearchGif ${error}`);
+  }
+};
 
-export const uploadGif = async () => { }
+export const uploadGif = async () => {};
 
-export const searchGiphs = (title = '') => title
-  ? giphs.filter(m => m.title.toLowerCase().includes(title.toLowerCase()))
-  : giphs;
+export const searchGiphs = (title = "") =>
+  title
+    ? giphs.filter((m) => m.title.toLowerCase().includes(title.toLowerCase()))
+    : giphs;

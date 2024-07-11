@@ -1,4 +1,5 @@
-import { SEARCH_URL, UPLOAD_URL } from "../common/giphy-constants.js";
+import { SEARCH_URL, UPLOAD_URL } from '../common/giphy-constants.js';
+import { addUpload } from '../data/uploads-data.js';
 
 
 export const loadTrending = async () => {
@@ -10,7 +11,7 @@ export const loadTrending = async () => {
     } catch (error) {
         console.error(`Error loading trending GIFs: ${error}`)
     }
- }
+}
 const giphs = [];
 
 export const loadSingleGif = async () => { }
@@ -18,14 +19,16 @@ export const loadSingleGif = async () => { }
 export const uploadGif = async (input) => {
     const formData = new FormData();
     input instanceof File ? formData.append('file', input) : formData.append('source_image_url', input);
-    try{
+    try {
         const response = await fetch(UPLOAD_URL, {
-            method: 'POST', 
+            method: 'POST',
             body: formData
         });
+        if (!response.ok) {
+            throw new Error(`Network error: `, response.statusText);
+        }
         const gif = await response.json();
-        console.log(gif);
-        //addUpload(gif)
+        addUpload(gif.id);
 
         alert('GIF uploaded successfully!');
     } catch (e) {
@@ -35,11 +38,11 @@ export const uploadGif = async (input) => {
 }
 
 
-export const loadSearchGifs = async (searchTerm = '') => { 
+export const loadSearchGifs = async (searchTerm = '') => {
     try {
-    const response = await fetch(`${SEARCH_URL}${searchTerm}`);
-    const gifs = await response.json();
-    return gifs.data;
+        const response = await fetch(`${SEARCH_URL}${searchTerm}`);
+        const gifs = await response.json();
+        return gifs.data;
     } catch (error) {
         console.error(`Error loadSearchGiph ${error}`);
     }
@@ -47,9 +50,9 @@ export const loadSearchGifs = async (searchTerm = '') => {
 
 export const searchGiphs = async (title = '') => {
     if (title) {
-      const searchResults = await loadSearchGifs(title);
-      return searchResults;
+        const searchResults = await loadSearchGifs(title);
+        return searchResults;
     } else {
-      return giphs;
+        return giphs;
     }
 }

@@ -2,6 +2,8 @@ import { ABOUT, TRENDING, UPLOAD, FAVORITES, HOME, CONTAINER_SELECTOR } from '..
 import { q, setActiveNav } from './helpers.js';
 import { toUploadView } from '../view/upload-view.js';
 import { toMyUploadsView } from '../view/my-uploads-view.js';
+import { getUploads } from '../data/uploads-data.js';
+import { loadSingleGif } from '../requests/request-service.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -44,7 +46,7 @@ const renderHome = () => {
     // q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
-export const renderTrending = async () => { 
+const renderTrending = async () => { 
     const trending = await loadTrending();
 
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending)
@@ -56,8 +58,11 @@ const renderUpload = () => {
     q(CONTAINER_SELECTOR).innerHTML = toUploadView();
 };
 
-const renderMyUploads = () => {
-    q(CONTAINER_SELECTOR).innerHTML = toMyUploadsView();
+const renderMyUploads = async () => {
+    const gifsIds = getUploads();
+    const gifs = await Promise.all(gifsIds.map((id) => loadSingleGif(id)));
+    
+    q(CONTAINER_SELECTOR).innerHTML = toMyUploadsView(gifs);
 }
 
 const renderAbout = () => {

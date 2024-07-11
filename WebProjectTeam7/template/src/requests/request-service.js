@@ -28,7 +28,7 @@ export const loadSearchGifs = async (searchTerm = '') => {
     const gifs = await response.json();
     return gifs;
     } catch (error) {
-        console.error(`Error loadSearchGif ${error}`);
+        console.error(`Error loadSearchGiph ${error}`);
     }
 }
 

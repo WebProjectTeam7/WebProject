@@ -4,6 +4,8 @@ import { q } from './events/helpers.js';
 import { searchGiphs, uploadGif } from './requests/request-service.js';
 import { renderSearchItems } from './events/search-events.js';
 import { renderTrending, renderGiftsDetails } from './events/navigation-events.js';
+import { addFavorite } from './data/favorites-data.js';
+
 
 document.addEventListener('DOMContentLoaded', async () => {
 

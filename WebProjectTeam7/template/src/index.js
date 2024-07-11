@@ -40,9 +40,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    q('#search').addEventListener('input', e => {
-        renderSearchItems(e.target.value);
-    });
 
     loadPage(HOME);
 });

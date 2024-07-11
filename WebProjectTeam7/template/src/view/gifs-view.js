@@ -22,3 +22,15 @@ export const toSingleGifView = (gif) => `
   </div>
 </div>
 `;
+
+const toGifDetailed = (movie) => `
+<div class="gif-detailed">
+  <div class="poster">
+    <img src="${gif.poster}">
+  </div>
+  <div class="gif-info">
+    <p>Genre: ${gif.genre}</p>
+    <p>Plot: ${gif.description}</p>
+  </div>
+</div>
+`;

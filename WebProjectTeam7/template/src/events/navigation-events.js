@@ -34,6 +34,9 @@ export const loadPage = (page = '') => {
             setActiveNav(ABOUT);
             return renderAbout();
 
+        case DETAILS:
+            setActiveNav(DETAILS);
+            return renderGiftsDetails();
         /* if the app supports error login, use default to log mapping errors */
         default: return null;
     }

@@ -5,7 +5,11 @@ import { toSearchView } from '../view/search-view.js';
 
 
 export const renderSearchItems = async (searchTerm) => {
-    const giphy = await searchGiphs(searchTerm);
-  
-    q(CONTAINER_SELECTOR).innerHTML = toSearchView(giphy, searchTerm);
+    try {
+      const giphy = await searchGiphs(searchTerm);
+     
+      q(CONTAINER_SELECTOR).innerHTML = toSearchView(giphy, searchTerm);
+    } catch (error) {
+      console.error( error);
+    }
   };

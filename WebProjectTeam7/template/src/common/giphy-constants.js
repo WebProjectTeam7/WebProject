@@ -11,3 +11,5 @@ export const TRENDING_URL = `https://api.giphy.com/v1/gifs/trending?api_key=${AP
 export const SEARCH_URL = `https://api.giphy.com/v1/gifs/search?api_key=${API_KEY}&limit=${LIMIT}&q=`;
 
 export const UPLOAD_URL = `https://upload.giphy.com/v1/gifs?api_key=${API_KEY_2}`;
+
+export const SEARCH_URL_BY_ID = `https://api.giphy.com/v1/gifs/searchbyid?api_key=${API_KEY}&limit=${LIMIT}`;

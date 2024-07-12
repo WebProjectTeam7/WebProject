@@ -28,26 +28,34 @@ header {
   color: #fff;
   padding: 16px;
   text-align: center;
-  display: flex;
+  display: center;
   justify-content: center;
   align-items: center;
-  background-image: url(../images/back.gif);
-  background-repeat: repeat;
-  background-position: flex;
-  background-size: contain;
-  height: 100px;
+  background-image: url(../images/css.gif);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 200px;
   
 }
 
 nav {
   grid-area: menu;
   height: 60px;
-  background: url('../images//banner-bottom.png');
+  background-color: #413746;
   font-size: 1.75em;
   line-height: 60px;
-  padding: 20px;
+  padding: 10px;
+  background-repeat: repeat;
   color: white;
   display: flex;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 nav a {
@@ -85,13 +93,18 @@ a.active {
 
 input#search {
   font-size: 20px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgb(41, 7, 41);
   color: white;
-  border: 1px solid gray;
+}
+
+#searchButton {
+  padding: 6px 10px;
+  background-color: #a8a7a8;
+  color: #fff;
+  border: #333;
+  cursor: pointer;
   border-radius: 4px;
-  height: 24px;
-  flex: 1 0;
-  margin: auto;
+  font-size: 14px;
 }
 
 span.favorite {

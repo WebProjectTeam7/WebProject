@@ -313,18 +313,28 @@ div.movie-detailed div.movie-info {
 /* About styles */
 
 #about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+#about {
   padding: 50px;
 }
 
 
 #about h1 {
-  color: rgb(187, 135, 255);
+  color: rgb(87, 78, 99);
   margin-bottom: 50px;
 }
 
 #about h2 {
   color: rgb(229, 210, 255);
 }
+/* End about styles */
+
+
 
 
 /*Loading Spinner */
@@ -349,4 +359,3 @@ div.movie-detailed div.movie-info {
 }
 
 
-/* End about styles */

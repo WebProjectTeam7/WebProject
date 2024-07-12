@@ -1,3 +1,5 @@
+import { renderFavoriteStatus } from '../events/helpers.js';
+
 export const toTrendingView = (gifs) => `
 <div id="gifs">
   <h1>Trending GIFs:</h1>
@@ -13,7 +15,7 @@ export const toGifSimple = (gif) => `
   <img src="${gif.images.fixed_height.url}" alt="${gif.title}"><br>
   <button class="details-button" data-gif-id="${gif.id}">View Details</button>
   <button class="favorite-button" data-gif-id="${gif.id}">
-  ${renderFavoriteStatus(gif.id) === '❤' ? 'Remove from Favorites' : 'Add to Favorites'}
+  ${renderFavoriteStatus(gif.id)}
   </button>
 </div>
 `;

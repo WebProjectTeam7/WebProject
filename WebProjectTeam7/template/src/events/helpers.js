@@ -1,5 +1,5 @@
 import { getFavorites } from "../data/favorites-data.js";
-
+import { FULL_HEART, EMPTY_HEART } from '../common/constants.js';
 
 export const q = (selector) => document.querySelector(selector);
 
@@ -17,17 +17,10 @@ export const setActiveNav = (page) => {
         );
 };
 
-// export const renderFavoriteStatus = async (giphyId) => {
-//     const favorites = await getFavorites();
-  
-//     return favorites.includes(giphyId)
-//       ? `<span class="favorite active" data-movie-id="${giphyId}">${FULL_HEART}</span>`
-//       : `<span class="favorite" data-movie-id="${giphyId}">${EMPTY_HEART}</span>`;
-//   };
-
-  export const renderFavoriteStatus = (giphyId) => {
+export const renderFavoriteStatus = (giphyId) => {
     const favorites = getFavorites();
+
     return favorites.includes(giphyId)
-      ? FULL_HEART
-      : EMPTY_HEART;
-  };
+        ? `<span class="favorite active" data-gif-id="${giphyId}">${FULL_HEART}</span>`
+        : `<span class="favorite" data-gif-id="${giphyId}">${EMPTY_HEART}</span>`;
+};

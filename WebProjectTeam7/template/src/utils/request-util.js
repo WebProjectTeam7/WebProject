@@ -18,8 +18,8 @@ export class GifFetcher {
     }
 
     #switchKey() {
-        this.#position = this.#position >= this.#API_KEYS.length ? 0 : +1;
-
+        this.#position = this.#position >= this.#API_KEYS.length ? 0 : this.#position + 1;
+        
         this.#apiKey = this.#API_KEYS[this.#position];
     }
 
@@ -41,6 +41,7 @@ export class GifFetcher {
         }
         if (!response.ok) {
             throw new Error(`Network error: `, response.statusText); //TODO import default gif if response not ok
+
         }
         return response;
     }

@@ -3,7 +3,7 @@ import { q, setActiveNav } from './helpers.js';
 import { toUploadView } from '../view/upload-view.js';
 import { toMyUploadsView } from '../view/my-uploads-view.js';
 import { getUploads } from '../data/uploads-data.js';
-import { loadSingleGif, loadTrending } from '../requests/request-service.js';
+import { loadRandomGif, loadSingleGif, loadTrending } from '../requests/request-service.js';
 import { getFavorites } from '../data/favorites-data.js';
 import { toFavoritesView } from '../view/favorites-view.js';
 import { toTrendingView, toSingleGifView } from '../view/gifs-view.js';
@@ -61,11 +61,15 @@ export const renderTrending = async () => {
 
 const renderFavorites = async () => {
     const favorites = getFavorites();
-    const giphyPromises = favorites.map(id => loadSingleGif(id));
-
-    const result = await Promise.all(giphyPromises);
-    q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(result.filter(gif => gif && gif.images && gif.images.fixed_height));;
-};
+    if (favorites.length === 0) {
+      const randomGif = await loadRandomGif();
+      q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(null, randomGif);
+    } else {
+      const giphyPromises = favorites.map(id => loadSingleGif(id));
+      const result = await Promise.all(giphyPromises);
+      q(CONTAINER_SELECTOR).innerHTML = toFavoritesView(result.filter(gif => gif && gif.images && gif.images.fixed_height));
+    }
+  };
 
 const renderUpload = () => {
     q(CONTAINER_SELECTOR).innerHTML = toUploadView();

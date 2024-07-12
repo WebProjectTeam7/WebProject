@@ -33,6 +33,8 @@ const toGifDetailed = (gif) => `
     <img src="${gif.images.fixed_height.url}" alt="${gif.title}">
   </div>
   <div class="gif-info">
+  <p>Username: ${gif.username}</p>
+    <p>Plot: ${gif.description}</p>
   </div>
 </div>
 `;

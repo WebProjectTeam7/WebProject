@@ -1,10 +1,11 @@
-import { SEARCH_URL, UPLOAD_URL, TRENDING_URL, GET_ID_URL, RANDOM_URL } from '../common/giphy-constants.js';
 import { addUpload } from '../data/uploads-data.js';
+import { GifFetcher } from '../utils/request-util.js';
 
+const gifFetcher = new GifFetcher();
 
 export const loadTrending = async () => {
     try {
-        const response = await fetch(TRENDING_URL);
+        const response = await gifFetcher.trendingGifs();
         const gif = await response.json();
 
         return gif.data;
@@ -16,20 +17,20 @@ export const loadTrending = async () => {
 
 export const loadSingleGif = async (gifId) => {
     try {
-        const response = await fetch(GET_ID_URL(gifId));
+        const response = await gifFetcher.byId(gifId);
         const gif = await response.json();
 
         return gif.data;
     } catch (error) {
         console.error(`Error loading GIF: ${error}`);
     }
- }
+}
 
 export const uploadGif = async (input) => {
     const formData = new FormData();
     input instanceof File ? formData.append('file', input) : formData.append('source_image_url', input);
     try {
-        const response = await fetch(UPLOAD_URL, {
+        const response = await gifFetcher.uploadGif({
             method: 'POST',
             body: formData
         });
@@ -37,7 +38,7 @@ export const uploadGif = async (input) => {
             throw new Error(`Network error: `, response.statusText);
         }
         const gif = await response.json();
-      
+
         addUpload(gif.data.id);
 
         alert('GIF uploaded successfully!');
@@ -50,7 +51,7 @@ export const uploadGif = async (input) => {
 
 export const loadSearchGifs = async (searchTerm = '') => {
     try {
-        const response = await fetch(`${SEARCH_URL}${searchTerm}`);
+        const response = await gifFetcher.searchGifs(searchTerm);
         const gifs = await response.json();
         return gifs.data;
     } catch (error) {
@@ -69,10 +70,10 @@ export const searchGiphs = async (title = '') => {
 
 export const loadRandomGif = async () => {
     try {
-      const response = await fetch(`${RANDOM_URL}`);
-      const json = await response.json();
-      return json.data; 
+        const response = await gifFetcher.randomGif();
+        const json = await response.json();
+        return json.data;
     } catch (error) {
-      console.error(`Error loading random GIF: ${error}`);
+        console.error(`Error loading random GIF: ${error}`);
     }
-  };
+};

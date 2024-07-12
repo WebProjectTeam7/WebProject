@@ -1,4 +1,4 @@
-import { SEARCH_URL, UPLOAD_URL, TRENDING_URL, GET_ID_URL } from '../common/giphy-constants.js';
+import { SEARCH_URL, UPLOAD_URL, TRENDING_URL, GET_ID_URL, RANDOM_URL } from '../common/giphy-constants.js';
 import { addUpload } from '../data/uploads-data.js';
 
 
@@ -12,7 +12,7 @@ export const loadTrending = async () => {
         console.error(`Error loading trending GIFs: ${error}`);
     }
 }
-const giphs = [];
+
 
 export const loadSingleGif = async (gifId) => {
     try {
@@ -63,6 +63,16 @@ export const searchGiphs = async (title = '') => {
         const searchResults = await loadSearchGifs(title);
         return searchResults;
     } else {
-        return giphs;
+        return [];
     }
 }
+
+export const loadRandomGif = async () => {
+    try {
+      const response = await fetch(`${RANDOM_URL}`);
+      const json = await response.json();
+      return json.data; 
+    } catch (error) {
+      console.error(`Error loading random GIF: ${error}`);
+    }
+  };

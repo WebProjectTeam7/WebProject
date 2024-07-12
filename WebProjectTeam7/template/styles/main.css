@@ -107,7 +107,7 @@ input#search {
   font-size: 14px;
 }
 
-span.favorite {
+/* span.favorite {
   padding-left: 10px;
   cursor: pointer;
 }
@@ -118,7 +118,7 @@ span.favorite.active {
 
 span.favorite:hover {
   color: rgb(187, 135, 255)
-}
+} */
 
 /* End template styling */
 
@@ -199,7 +199,7 @@ span.favorite:hover {
 
 /* Categories styles */
 
-#categories {
+/* #categories {
   padding: 50px;
 }
 
@@ -234,14 +234,14 @@ div.category {
 
 #categories button:hover {
   color: white;
-}
+} */
 
 /* End categories styles */
 
 
 /* Movies styles */
 
-#movies {
+/* #movies {
   padding: 50px;
 }
 
@@ -292,7 +292,7 @@ div.movie img {
 
 #movies button:hover {
   color: white;
-}
+} */
 
 /* Single movie styles */
 
@@ -384,3 +384,68 @@ div.movie-detailed div.movie-info {
 }
 
 
+/* Trending styles */
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 16px; 
+  padding: 16px;
+}
+
+.gif {
+  border: 1px solid red; 
+  padding: 8px;
+  text-align: center;
+}
+
+.gif img {
+  width: 100%; 
+  height: 200px;
+}
+
+/* End Trending styles */
+
+
+/*Buttons*/
+.favorite-button {
+  display: inline-block;
+  background: white;
+  cursor: pointer;
+  font-size: 1.5em; 
+  padding: 5px;
+  color: rgb(222, 113, 255);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid black;
+  line-height: 1;
+  padding: 8px;
+  margin-left: 8px;
+}
+
+.favorite-button:hover {
+cursor: pointer;
+transform: scale(1.20);
+}
+
+.details-button {
+  background-color: #3498db;
+  border: none;
+  color: white;
+  padding: 4px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.details-button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05); 
+  transition: transform 0.1s; 
+}
+
+/*End Buttons*/

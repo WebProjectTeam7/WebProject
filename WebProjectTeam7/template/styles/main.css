@@ -3,32 +3,40 @@
 html,
 body {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: url('../images/dark-linen.png') repeat;
+  background-color: rgb(41, 7, 41);
   font-family: 'Roboto', sans-serif;
+  color: #333;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+  min-height: 100px;
 }
 
 div#app {
-  display: grid;
-  max-width: 1400px;
-  margin: 0 auto;
-  grid-template-columns: auto 1fr auto;
-  grid-template-rows: auto auto 1fr auto;
-  grid-template-areas:
-    'header header header'
-    'menu menu menu'
-    'container container container'
-    'footer footer footer'
-  ;
-  min-height: 100vh;
+display: flex;
+flex-direction: column;
+flex: 1;
 }
 
 header {
-  grid-area: header;
-  height: 200px;
-  background: url('../images/banner-top.png');
+  background: #333;
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../images/back.gif);
+  background-repeat: repeat;
+  background-position: flex;
+  background-size: contain;
+  height: 100px;
+  
 }
 
 nav {

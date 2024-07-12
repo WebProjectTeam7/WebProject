@@ -27,7 +27,7 @@ export const toSingleGifView = (gif) => `
 </div>
 `;
 
-const toGifDetailed = (gif) => `
+export const toGifDetailed = (gif) => `
 <div class="gif-detailed">
   <div class="poster">
     <img src="${gif.images.fixed_height.url}" alt="${gif.title}">

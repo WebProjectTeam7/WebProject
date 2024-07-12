@@ -48,9 +48,9 @@ export const loadPage = (page = '') => {
 // private functions
 
 const renderHome = async () => {
-    // const gifs = await Promise.all(Array.from({ length: 5 }, () => loadRandomGif())); //TODO
+    const gifs = await Promise.all(Array.from({ length: 7 }, () => loadRandomGif()));
 
-    q(CONTAINER_SELECTOR).innerHTML = toHomeView();
+    q(CONTAINER_SELECTOR).innerHTML = toHomeView(gifs);
 };
 
 export const renderTrending = async () => {

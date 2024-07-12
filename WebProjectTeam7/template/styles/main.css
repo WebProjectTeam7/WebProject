@@ -130,8 +130,6 @@ span.favorite:hover {
 /* Homepage styles */
 
 .home-view {
-  /* margin: 0; */
-  /* padding: 0; */
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -187,7 +185,7 @@ span.favorite:hover {
   right: 300px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1300px) {
   .home-view .gif {
     position: static; 
     margin: 10px 0; 

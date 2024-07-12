@@ -3,11 +3,11 @@ import { q, setActiveNav } from './helpers.js';
 import { toUploadView } from '../view/upload-view.js';
 import { toMyUploadsView } from '../view/my-uploads-view.js';
 import { getUploads } from '../data/uploads-data.js';
-import { loadSingleGif, loadTrending  } from '../requests/request-service.js';
+import { loadSingleGif, loadTrending } from '../requests/request-service.js';
 import { getFavorites } from '../data/favorites-data.js';
 import { toFavoritesView } from '../view/favorites-view.js';
 import { toTrendingView, toSingleGifView } from '../view/gifs-view.js';
-import { toAboutView} from '../view/about-view.js';
+import { toAboutView } from '../view/about-view.js';
 import { toHomeView } from '../view/home-view.js';
 
 // public API
@@ -30,10 +30,10 @@ export const loadPage = (page = '') => {
         case UPLOAD:
             setActiveNav(UPLOAD);
             return renderUpload();
-        
+
         case MY_UPLOADS:
             setActiveNav(MY_UPLOADS);
-            return renderMyUploads();    
+            return renderMyUploads();
 
         case ABOUT:
             setActiveNav(ABOUT);
@@ -47,11 +47,13 @@ export const loadPage = (page = '') => {
 
 // private functions
 
-const renderHome = () => {
+const renderHome = async () => {
+    // const gifs = await Promise.all(Array.from({ length: 5 }, () => loadRandomGif())); //TODO
+
     q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 };
 
-export const renderTrending = async () => { 
+export const renderTrending = async () => {
     const trending = await loadTrending();
 
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending);
@@ -82,6 +84,6 @@ const renderAbout = () => {
 
 export const renderGiftsDetails = async (gifId = null) => {
     const gif = await loadSingleGif(gifId);
-console.log(gif);
+
     q(CONTAINER_SELECTOR).innerHTML = toSingleGifView(gif);
 }

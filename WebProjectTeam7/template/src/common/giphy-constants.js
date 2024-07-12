@@ -12,8 +12,8 @@ export const GET_ID_URL = (apiKey, id) =>
 export const TRENDING_URL = (apiKey, limit) =>
     `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${limit}`;
 
-export const SEARCH_URL = (apiKey, limit) =>
-    `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=${limit}&q=`;
+export const SEARCH_URL = (apiKey, limit, query) =>
+    `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=${limit}&q=${query}`;
 
 export const UPLOAD_URL = (apiKey) =>
     `https://upload.giphy.com/v1/gifs?api_key=${apiKey}`;

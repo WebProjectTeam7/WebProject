@@ -3,24 +3,22 @@ import {
     TRENDING_URL, SEARCH_URL, UPLOAD_URL, RANDOM_URL
 } from '../common/giphy-constants.js';
 
-
 export class GifFetcher {
 
     #API_KEYS = [];
 
     #position = 0;
 
-    #apiKey;
-
     constructor() {
         this.#API_KEYS = [API_KEY_1, API_KEY_2, API_KEY_3];
-        this.#apiKey = API_KEY_1;
+    }
+
+    #getApiKey() {
+        return this.#API_KEYS[this.#position];
     }
 
     #switchKey() {
-        this.#position = this.#position >= this.#API_KEYS.length ? 0 : this.#position + 1;
-        
-        this.#apiKey = this.#API_KEYS[this.#position];
+        this.#position = (this.#position + 1) % this.#API_KEYS.length;
     }
 
     async #loadRequest(request, args = [], header = null) {
@@ -28,7 +26,7 @@ export class GifFetcher {
         let response;
         while (tries > 0) {
             try {
-                response = await fetch(request(this.#apiKey, ...args), header);
+                response = await fetch(request(this.#getApiKey(), ...args), header);
                 if (response.status === 429) {
                     tries--;
                     this.#switchKey();
@@ -36,12 +34,12 @@ export class GifFetcher {
                     break;
                 }
             } catch (e) {
-                throw new Error('Network error: ', e.message);
+                throw new Error(`Network error: ${e.message}`);
             }
         }
-        if (!response.ok) {
-            throw new Error(`Network error: `, response.statusText); //TODO import default gif if response not ok
 
+        if (!response.ok) {
+            throw new Error(`Network error: ${response.statusText}`);
         }
         return response;
     }
@@ -54,9 +52,8 @@ export class GifFetcher {
         return this.#loadRequest(TRENDING_URL, [limit]);
     }
 
-    searchGifs(limit = LIMIT) {
-        return this.#loadRequest(SEARCH_URL, [limit]
-        );
+    searchGifs(query, limit = LIMIT) {
+        return this.#loadRequest(SEARCH_URL, [limit, query]);
     }
 
     uploadGif(header) {
@@ -64,6 +61,6 @@ export class GifFetcher {
     }
 
     randomGif() {
-        return this.#loadRequest(RANDOM_URL);
+        return this.#loadRequest(RANDOM_URL, []);
     }
 }

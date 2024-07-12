@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             await renderTrending(+e.target.getAttribute('data-gif-id'));
         }
 
-        if (e.target.classList.contains('favorite-button')) {
-            const gifId = e.target.getAttribute('data-gif-id');
+        if (e.target.classList.contains('favorite-button') || e.target.classList.contains('favorite')) {
+            const gifId = e.target.getAttribute('data-gif-id') || e.target.parentNode.getAttribute('data-gif-id');
             toggleFavoriteStatus(gifId);
-        }
+          }
 
         if (e.target.classList.contains('details-button')) {
             const gifId = e.target.getAttribute('data-gif-id');

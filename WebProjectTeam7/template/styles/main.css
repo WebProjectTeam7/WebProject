@@ -387,21 +387,32 @@ div.movie-detailed div.movie-info {
 /* Trending styles */
 
 .content {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 16px; 
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 16px; 
   padding: 16px;
 }
 
+.content.single {
+  justify-content: center; 
+}
+
+.content.multiple {
+  justify-content: space-between; 
+}
+
 .gif {
-  border: 1px solid red; 
+  flex: 1 1 200px; 
+  max-width: 200px;
+  border: 1px solid red;
   padding: 8px;
   text-align: center;
 }
 
 .gif img {
-  width: 100%; 
-  height: 200px;
+  width: 100%;
+  height: 170px;
 }
 
 /* End Trending styles */

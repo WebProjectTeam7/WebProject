@@ -3,7 +3,7 @@ import { q, setActiveNav } from './helpers.js';
 import { toUploadView } from '../view/upload-view.js';
 import { toMyUploadsView } from '../view/my-uploads-view.js';
 import { getUploads } from '../data/uploads-data.js';
-import { loadRandomGif, loadSingleGif, loadTrending, loadSearchGifs } from '../requests/request-service.js';
+import { loadRandomGif, loadSingleGif, loadTrending, loadSearchGifs, loadGifsByIds } from '../requests/request-service.js';
 import { getFavorites } from '../data/favorites-data.js';
 import { toFavoritesView } from '../view/favorites-view.js';
 import { toTrendingView, toSingleGifView } from '../view/gifs-view.js';
@@ -77,7 +77,7 @@ const renderUpload = () => {
 
 const renderMyUploads = async () => {
     const gifsIds = getUploads();
-    const gifs = await Promise.all(gifsIds.map((id) => loadSingleGif(id)));
+    const gifs = await loadGifsByIds(gifsIds);
 
     q(CONTAINER_SELECTOR).innerHTML = toMyUploadsView(gifs);
 }

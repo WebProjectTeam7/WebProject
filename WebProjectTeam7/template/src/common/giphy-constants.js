@@ -9,6 +9,9 @@ export const LIMIT = 20;
 export const GET_ID_URL = (apiKey, id) =>
     `https://api.giphy.com/v1/gifs/${id}/?api_key=${apiKey}`;
 
+export const GET_IDS_URL = (apiKey, ids) =>
+    `https://api.giphy.com/v1/gifs?api_key=${apiKey}&ids=${ids}`;
+
 export const TRENDING_URL = (apiKey, limit) =>
     `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}&limit=${limit}`;
 

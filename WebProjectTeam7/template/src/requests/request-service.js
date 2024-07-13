@@ -14,7 +14,6 @@ export const loadTrending = async () => {
     }
 }
 
-
 export const loadSingleGif = async (gifId) => {
     try {
         const response = await gifFetcher.byId(gifId);
@@ -26,6 +25,17 @@ export const loadSingleGif = async (gifId) => {
     }
 }
 
+export const loadGifsByIds = async (gifIds = []) => {
+    try {
+        const response = await gifFetcher.byIds(gifIds);      
+        const gifs = await response.json();
+
+        return gifs.data;
+    } catch (error) {
+        console.error(`Error loading: `, error.message);
+    }
+}
+
 export const uploadGif = async (input) => {
     const formData = new FormData();
     input instanceof File ? formData.append('file', input) : formData.append('source_image_url', input);
@@ -34,18 +44,16 @@ export const uploadGif = async (input) => {
             method: 'POST',
             body: formData
         });
-        
-        const gif = await response.json();
 
+        const gif = await response.json();
         addUpload(gif.data.id);
 
         alert('GIF uploaded successfully!');
-    } catch (e) {
-        console.error('Error: ', e.message);
+    } catch (error) {
+        console.error('Error: ', error.message);
         alert('Failed to upload GIF!');
     }
 }
-
 
 export const loadSearchGifs = async (searchTerm = '') => {
     try {

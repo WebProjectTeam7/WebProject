@@ -1,6 +1,6 @@
 import {
     API_KEY_1, API_KEY_2, API_KEY_3, LIMIT, GET_ID_URL,
-    TRENDING_URL, SEARCH_URL, UPLOAD_URL, RANDOM_URL
+    GET_IDS_URL, TRENDING_URL, SEARCH_URL, UPLOAD_URL, RANDOM_URL
 } from '../common/giphy-constants.js';
 
 export class GifFetcher {
@@ -46,6 +46,10 @@ export class GifFetcher {
 
     byId(gifId) {
         return this.#loadRequest(GET_ID_URL, [gifId]);
+    }
+
+    byIds(gidIds) {
+        return this.#loadRequest(GET_IDS_URL, [gidIds]);
     }
 
     trendingGifs(limit = LIMIT) {

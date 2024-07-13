@@ -34,9 +34,7 @@ export const uploadGif = async (input) => {
             method: 'POST',
             body: formData
         });
-        if (!response.ok) {
-            throw new Error(`Network error: `, response.statusText);
-        }
+        
         const gif = await response.json();
 
         addUpload(gif.data.id);

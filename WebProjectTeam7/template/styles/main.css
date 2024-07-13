@@ -338,24 +338,35 @@ div.movie-detailed div.movie-info {
 /* About styles */
 
 #about {
+  background-color: rgba(0, 0, 0, 0.5); 
+  height: 100vh; 
   display: flex;
-  justify-content: center;
+  flex-direction: column; 
   align-items: center;
-  height: 50vh;
+  color: white;
+  padding-top: 1px;
 }
 
-#about {
-  padding: 50px;
+#about img {
+  width: 200px; 
+  height: 200px; 
+  object-fit: contain; 
+  margin: 10px 0; 
 }
 
+#about .content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
 
 #about h1 {
-  color: rgb(87, 78, 99);
-  margin-bottom: 50px;
+  margin-bottom: 10px; 
 }
 
-#about h2 {
-  color: rgb(229, 210, 255);
+#about h2, #about h4 {
+  margin: 5px 0; 
 }
 /* End about styles */
 

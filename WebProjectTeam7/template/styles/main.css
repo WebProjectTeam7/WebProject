@@ -150,7 +150,7 @@ span.favorite:hover {
   justify-content: center; 
   gap: 16px; 
   padding: 16px;
-  margin-top: 95px; 
+  margin-top: 40px; 
 }
 
 .content.single {
@@ -547,3 +547,28 @@ transform: scale(1.20);
 }
 
 /* End Ad placeholder */
+
+/* Favorites page styles */
+#favorites {
+  padding: 20px; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  width: 100%; 
+  height: auto; 
+  position: relative;
+  min-height: 50vh; 
+}
+
+#favorites h1 {
+  text-align: center; 
+  margin-bottom: 20px; 
+}
+
+#favorites .content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 16px;
+  padding: 16px;
+}
+
+/* End Favorites page styles */

@@ -11,5 +11,10 @@ export const toggleFavoriteStatus = (giphyId) => {
     addFavorite(giphyId);
   }
 
-  q(`span[data-gif-id="${giphyId}"]`).innerHTML = renderFavoriteStatus(giphyId);
+  document.querySelectorAll('.favorite').forEach(span => {
+    const id = span.getAttribute('data-gif-id');
+    span.innerHTML = renderFavoriteStatus(id);
+  });
+  
+  //q(`span[data-gif-id="${giphyId}"]`).innerHTML = renderFavoriteStatus(giphyId);
 };

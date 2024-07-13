@@ -129,47 +129,70 @@ span.favorite:hover {
 
 /* Homepage styles */
 
+/* Updated CSS Styles */
+
+/* Updated CSS Styles */
+
+/* Updated CSS Styles */
+
 #home {
-  padding: 20px; 
-  background-color: rgba(0, 0, 0, 0.5); 
-  width: 100%; 
-  height: auto; 
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
   color: white;
   position: relative;
-  min-height: 70vh; 
+  min-height: 70vh;
 }
 
 #home h1 {
-  text-align: center; 
-  margin-bottom: 1px; 
+  text-align: center;
+  margin-bottom: 40px; /* Increased margin for better spacing */
+  font-size: 48px; /* Larger font size for the heading */
+}
+
+.powered-by {
+  text-align: center;
+  margin-bottom: 20px; /* Spacing between powered-by section and content */
+}
+
+.powered-by p {
+  font-size: 20px; /* Font size for powered-by text */
+  margin-bottom: 10px; /* Spacing below powered-by text */
+}
+
+.powered-by img {
+  height: 100px; /* Increased height of the Giphy logo */
+  margin-bottom: 20px; /* Spacing below the Giphy logo */
 }
 
 .content {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 16px; 
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
   padding: 16px;
-  margin-top: 40px; 
 }
 
-.content.single {
-  justify-content: center; 
+.content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 20px; /* Font size for list items */
 }
 
-.content.multiple {
-  justify-content: space-between; 
+.content ul li {
+  margin-bottom: 10px; /* Spacing between list items */
 }
 
 .home-view .gif {
   position: absolute;
   width: 200px;
   height: 200px;
-  transition: all 0.5s ease; 
+  transition: all 0.5s ease;
 }
 
 .home-view .gif.top-left {
-  top: 70px;
+  top: 80px;
   left: 200px;
 }
 
@@ -185,7 +208,7 @@ span.favorite:hover {
 
 .home-view .gif.bottom-left-2 {
   bottom: 5px;
-  left: 270px;
+  left: 240px;
 }
 
 .home-view .gif.bottom-right-1 {
@@ -195,23 +218,20 @@ span.favorite:hover {
 
 .home-view .gif.bottom-right-2 {
   bottom: 80px;
-  right: 270px;
+  right: 260px;
 }
 
 .home-view .gif.bottom-right-3 {
-  bottom: 20px;
-  right: 500px;
+  bottom: 10px;
+  right: 450px;
 }
 
 @media (max-width: 1300px) {
   .home-view .gif {
-    position: static; 
-    margin: 10px 0; 
+    position: static;
+    margin: 10px 0;
   }
 }
-
-
-
 
 /* End homepage styles */
 

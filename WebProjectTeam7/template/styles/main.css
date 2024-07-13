@@ -107,33 +107,8 @@ input#search {
   font-size: 14px;
 }
 
-/* span.favorite {
-  padding-left: 10px;
-  cursor: pointer;
-}
-
-span.favorite.active {
-  color: rgb(255, 0, 149);
-}
-
-span.favorite:hover {
-  color: rgb(187, 135, 255)
-} */
-
-/* End template styling */
-
-
-
-/* Add your styles below */
-
-
 /* Homepage styles */
 
-/* Updated CSS Styles */
-
-/* Updated CSS Styles */
-
-/* Updated CSS Styles */
 
 #home {
   padding: 20px;
@@ -146,23 +121,23 @@ span.favorite:hover {
 
 #home h1 {
   text-align: center;
-  margin-bottom: 40px; /* Increased margin for better spacing */
-  font-size: 48px; /* Larger font size for the heading */
+  margin-bottom: 40px; 
+  font-size: 48px; 
 }
 
 .powered-by {
   text-align: center;
-  margin-bottom: 20px; /* Spacing between powered-by section and content */
+  margin-bottom: 20px; 
 }
 
 .powered-by p {
-  font-size: 20px; /* Font size for powered-by text */
-  margin-bottom: 10px; /* Spacing below powered-by text */
+  font-size: 20px; 
+  margin-bottom: 10px; 
 }
 
 .powered-by img {
-  height: 100px; /* Increased height of the Giphy logo */
-  margin-bottom: 20px; /* Spacing below the Giphy logo */
+  height: 100px; 
+  margin-bottom: 20px; 
 }
 
 .content {
@@ -177,11 +152,11 @@ span.favorite:hover {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  font-size: 20px; /* Font size for list items */
+  font-size: 20px; 
 }
 
 .content ul li {
-  margin-bottom: 10px; /* Spacing between list items */
+  margin-bottom: 10px; 
 }
 
 .home-view .gif {
@@ -236,104 +211,7 @@ span.favorite:hover {
 /* End homepage styles */
 
 
-/* Categories styles */
 
-/* #categories {
-  padding: 50px;
-}
-
-#categories h1 {
-  color: rgb(187, 135, 255);
-}
-
-#categories div.content {
-  font-size: 1.25em;
-}
-
-div.category {
-  display: inline-block;
-  width: 20%;
-  margin: 1%;
-  padding: 1%;
-  border: 1px solid rgb(97, 71, 97);
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
-  text-align: center;
-}
-
-#categories button {
-  font-size: 20px;
-  padding: 5px;
-  color: rgb(187, 135, 255);
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid black;
-  cursor: pointer;
-}
-
-#categories button:hover {
-  color: white;
-} */
-
-/* End categories styles */
-
-
-/* Movies styles */
-
-/* #movies {
-  padding: 50px;
-}
-
-#movies h1 {
-  color: rgb(187, 135, 255);
-}
-
-#movies div.content {
-  font-size: 1.25em;
-  text-align: center;
-}
-
-div.movie {
-  display: inline-block;
-  width: 20%;
-  margin: 1%;
-  padding: 1%;
-  border: 1px solid rgb(97, 71, 97);
-  border-radius: 4px;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
-  text-align: center;
-}
-
-div.movie h1 {
-  font-size: 1.5em;
-  margin: 5px;
-}
-
-div.movie h2 {
-  font-size: 1.25em;
-  margin: 5px;
-}
-
-div.movie img {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-#movies button {
-  font-size: 20px;
-  padding: 5px;
-  color: rgb(222, 113, 255);
-  background-color: rgba(0, 0, 0, 0.5);
-  border: 1px solid black;
-  cursor: pointer;
-}
-
-#movies button:hover {
-  color: white;
-} */
-
-/* Single movie styles */
 
 div.movie-detailed {
   padding: 20px;

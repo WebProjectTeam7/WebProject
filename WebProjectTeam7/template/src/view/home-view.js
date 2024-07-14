@@ -1,3 +1,9 @@
+
+/**
+ * Generates the HTML for displaying the home view with GIFs.
+ * @param {Array} gifs - Array of GIF objects to display on the home view.
+ * @returns {string} - HTML string for displaying the home view with GIFs.
+ */
 export const toHomeView = (gifs) => `
 <div id="home" class="home-view">
   <h1>GIPHY GIFS</h1>

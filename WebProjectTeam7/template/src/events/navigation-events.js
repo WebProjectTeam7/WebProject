@@ -1,5 +1,5 @@
 import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITES, HOME, SEARCH, DETAILS, CONTAINER_SELECTOR, CONTAINER_SELECTOR_TRENDING, CONTAINER_SELECTOR_SEARCH } from '../common/constants.js';
-import { loadRandomGif, loadSingleGif, loadTrending, loadSearchGifs, loadGifsByIds } from '../requests/request-service.js';
+import { loadRandomGif, loadSingleGif, loadTrending, loadGifsByIds, searchGifs } from '../requests/request-service.js';
 import { getActiveNav, q, setActiveNav } from './helpers.js';
 import { toTrendingView, toSingleGifView, toShowMoreTrendingView } from '../view/gifs-view.js';
 import { toUploadView } from '../view/upload-view.js';
@@ -105,7 +105,7 @@ export const renderShowMore = async () => {
     } else if (page === SEARCH) {
         const query = q('#search').value.trim();
         OFFSET[0] += LIMIT;
-        const search = await loadSearchGifs(query, OFFSET[0]);
+        const search = await searchGifs(query, OFFSET[0]);
         q(CONTAINER_SELECTOR_SEARCH).innerHTML += toShowMoreSearchView(search);
     }
 }

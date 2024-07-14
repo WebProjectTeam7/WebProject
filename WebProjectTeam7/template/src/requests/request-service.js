@@ -1,9 +1,12 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-undef */
+/* eslint-disable consistent-return */
 import { addUpload } from '../data/uploads-data.js';
 import { GifFetcher } from '../utils/request-util.js';
 
 const gifFetcher = new GifFetcher();
 
-export const loadTrending = async () => {
+export const loadTrending = async() => {
     try {
         const response = await gifFetcher.trendingGifs();
         const gif = await response.json();
@@ -14,7 +17,7 @@ export const loadTrending = async () => {
     }
 }
 
-export const loadSingleGif = async (gifId) => {
+export const loadSingleGif = async(gifId) => {
     try {
         const response = await gifFetcher.byId(gifId);
         const gif = await response.json();
@@ -25,20 +28,20 @@ export const loadSingleGif = async (gifId) => {
     }
 }
 
-export const loadGifsByIds = async (gifIds = []) => {
+export const loadGifsByIds = async(gifIds = []) => {
     try {
         const response = await gifFetcher.byIds(gifIds);      
         const gifs = await response.json();
 
         return gifs.data;
     } catch (error) {
-        console.error(`Error loading: `, error.message);
+        console.error('Error loading: ', error.message);
     }
 }
 
-export const uploadGif = async (input) => {
+export const uploadGif = async(input) => {
     const formData = new FormData();
-    input instanceof File ? formData.append('file', input) : formData.append('source_image_url', input);
+    formData.append('file', input);
     try {
         const response = await gifFetcher.uploadGif({
             method: 'POST',
@@ -55,7 +58,7 @@ export const uploadGif = async (input) => {
     }
 }
 
-export const loadSearchGifs = async (searchTerm = '') => {
+export const loadSearchGifs = async(searchTerm = '') => {
     try {
         const response = await gifFetcher.searchGifs(searchTerm);
         const gifs = await response.json();
@@ -65,16 +68,16 @@ export const loadSearchGifs = async (searchTerm = '') => {
     }
 }
 
-export const searchGiphs = async (title = '') => {
+export const searchGiphs = async(title = '') => {
     if (title) {
         const searchResults = await loadSearchGifs(title);
         return searchResults;
-    } else {
-        return [];
-    }
+    } 
+    return [];
+    
 }
 
-export const loadRandomGif = async () => {
+export const loadRandomGif = async() => {
     try {
         const response = await gifFetcher.randomGif();
         const json = await response.json();

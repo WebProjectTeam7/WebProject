@@ -4,12 +4,12 @@ import { searchGiphs } from '../requests/request-service.js';
 import { toSearchView } from '../view/search-view.js';
 
 
-export const renderSearchItems = async (searchTerm) => {
+export const renderSearchItems = async(searchTerm) => {
     try {
-      const giphy = await searchGiphs(searchTerm);
+        const giphy = await searchGiphs(searchTerm);
      
-      q(CONTAINER_SELECTOR).innerHTML = toSearchView(giphy, searchTerm);
+        q(CONTAINER_SELECTOR).innerHTML = toSearchView(giphy, searchTerm);
     } catch (error) {
-      console.error( error);
+        console.error(error);
     }
-  };
+};

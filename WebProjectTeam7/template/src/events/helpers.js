@@ -1,4 +1,5 @@
-import { getFavorites } from "../data/favorites-data.js";
+/* eslint-disable no-undef */
+import { getFavorites } from '../data/favorites-data.js';
 import { FULL_HEART, EMPTY_HEART } from '../common/constants.js';
 
 export const q = (selector) => document.querySelector(selector);

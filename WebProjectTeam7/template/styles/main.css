@@ -36,7 +36,7 @@ header {
   background-position: center;
   background-size: cover;
   height: 250px;
-  
+
 }
 
 nav {
@@ -121,23 +121,23 @@ input#search {
 
 #home h1 {
   text-align: center;
-  margin-bottom: 40px; 
-  font-size: 48px; 
+  margin-bottom: 40px;
+  font-size: 48px;
 }
 
 .powered-by {
   text-align: center;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 
 .powered-by p {
-  font-size: 20px; 
-  margin-bottom: 10px; 
+  font-size: 20px;
+  margin-bottom: 10px;
 }
 
 .powered-by img {
-  height: 100px; 
-  margin-bottom: 20px; 
+  height: 100px;
+  margin-bottom: 20px;
 }
 
 .content {
@@ -152,11 +152,11 @@ input#search {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  font-size: 20px; 
+  font-size: 20px;
 }
 
 .content ul li {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
 .home-view .gif {
@@ -210,9 +210,6 @@ input#search {
 
 /* End homepage styles */
 
-
-
-
 div.movie-detailed {
   padding: 20px;
   border: 1px solid rgb(97, 71, 97);
@@ -255,36 +252,38 @@ div.movie-detailed div.movie-info {
 /* About styles */
 
 #about {
-  background-color: rgba(0, 0, 0, 0.5); 
-  height: 100vh; 
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100vh;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   align-items: center;
   color: white;
   padding-top: 1px;
 }
 
 #about img {
-  width: 200px; 
-  height: 200px; 
-  object-fit: contain; 
-  margin: 10px 0; 
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  margin: 10px 0;
 }
 
 #about .content {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
 }
 
 #about h1 {
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
 }
 
-#about h2, #about h4 {
-  margin: 5px 0; 
+#about h2,
+#about h4 {
+  margin: 5px 0;
 }
+
 /* End about styles */
 
 
@@ -316,22 +315,22 @@ div.movie-detailed div.movie-info {
 
 .content {
   display: flex;
-  flex-wrap: wrap; 
-  justify-content: center; 
-  gap: 16px; 
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
   padding: 16px;
 }
 
 .content.single {
-  justify-content: center; 
+  justify-content: center;
 }
 
 .content.multiple {
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .gif {
-  flex: 1 1 200px; 
+  flex: 1 1 200px;
   max-width: 200px;
   padding: 8px;
   text-align: center;
@@ -350,7 +349,7 @@ div.movie-detailed div.movie-info {
   display: inline-block;
   background: white;
   cursor: pointer;
-  font-size: 1.5em; 
+  font-size: 1.5em;
   padding: 5px;
   color: rgb(222, 113, 255);
   background-color: rgba(0, 0, 0, 0.5);
@@ -361,8 +360,8 @@ div.movie-detailed div.movie-info {
 }
 
 .favorite-button:hover {
-cursor: pointer;
-transform: scale(1.20);
+  cursor: pointer;
+  transform: scale(1.20);
 }
 
 .details-button {
@@ -382,8 +381,8 @@ transform: scale(1.20);
 
 .details-button:hover {
   background-color: #2980b9;
-  transform: scale(1.05); 
-  transition: transform 0.1s; 
+  transform: scale(1.05);
+  transition: transform 0.1s;
 }
 
 /*End Buttons*/
@@ -395,41 +394,41 @@ transform: scale(1.20);
   padding: 16px;
   text-align: center;
   color: black;
-  margin: 10px auto; 
-  width: 400px; 
-  height: 100px; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
+  margin: 10px auto;
+  width: 400px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   padding: 1px;
 }
 
 /* Mock Ad Styles */
 .mock-ad {
   border: 1px solid #ccc;
-  padding: 10px; 
+  padding: 10px;
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center; 
-  width: 100%; 
-  height: 100%; 
-  display: flex; 
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
-  
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .mock-ad h2 {
   color: #333;
-  font-size: 20px; 
+  font-size: 20px;
   margin-top: 1px;
 }
 
 .mock-ad p {
   color: #313030;
-  font-size: 12px; 
+  font-size: 12px;
   margin-top: 1px;
 }
 
@@ -437,7 +436,7 @@ transform: scale(1.20);
   color: #007bff;
   text-decoration: none;
   font-weight: bold;
-  font-size: 16px; 
+  font-size: 16px;
 }
 
 .mock-ad a:hover {
@@ -448,23 +447,23 @@ transform: scale(1.20);
 
 /* Favorites page styles */
 #favorites {
-  padding: 20px; 
-  background-color: rgba(0, 0, 0, 0.5); 
-  width: 100%; 
-  height: auto; 
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: auto;
   position: relative;
-  min-height: 50vh; 
+  min-height: 50vh;
 }
 
 #favorites h1 {
-  text-align: center; 
-  margin-bottom: 20px; 
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 #favorites .content {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; 
+  justify-content: center;
   gap: 16px;
   padding: 16px;
 }

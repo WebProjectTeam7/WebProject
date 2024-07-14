@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 let uploads = JSON.parse(localStorage.getItem('uploads')) || [];
 
 export const addUpload = (gifId) => {

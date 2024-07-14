@@ -1,4 +1,4 @@
-import { toGifSimple } from "./gifs-view.js";
+import { toGifSimple } from './gifs-view.js';
 
 export const toSearchView = (giphs, searchTerm) => `
 <div id="giphs">

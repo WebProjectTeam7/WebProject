@@ -1,8 +1,8 @@
-import { toGifSimple } from "./gifs-view.js";
+import { toGifSimple } from './gifs-view.js';
 
 export const toFavoritesView = (giphy, randomGif = null) => {
-  if (randomGif) {
-    return `
+    if (randomGif) {
+        return `
 <div id="favorites">
   <h1>No Favorites Yet! Here's a Random Gif:</h1>
   <div class="content">
@@ -10,9 +10,9 @@ export const toFavoritesView = (giphy, randomGif = null) => {
   </div>
 </div>
 `;
-  } 
+    } 
 
-  return `
+    return `
 <div id="favorites">
   <h1>Favorite Giphs:</h1>
   <div class="content">

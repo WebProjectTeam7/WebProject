@@ -51,7 +51,7 @@ export const loadPage = (page = '') => {
 // private functions
 
 const renderHome = async () => {
-    const gifs = await loadSearchGifs('cats');
+    const gifs = await searchGifs('cats');
 
     q(CONTAINER_SELECTOR).innerHTML = toHomeView(gifs);
 };

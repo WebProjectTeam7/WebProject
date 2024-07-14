@@ -77,33 +77,25 @@ export const uploadGif = async (input) => {
 }
 
 /**
- * Searches for GIFs by a search term.
- * @param {string} searchTerm - The search term to use.
+ * Searches for GIFs by title.
+ * @param {string} title - The title to search for.
+ * @param {number} offset - The offset for pagination.
  * @returns {Promise<Array>} - A promise that resolves to an array of GIF objects.
  */
-export const loadSearchGifs = async (searchTerm = '', offset) => {
+export const searchGifs = async (title = '', offset = 0) => {
+    if (!title) {
+        return [];
+    }
+
     try {
-        const response = await gifFetcher.searchGifs(searchTerm, offset);
+        const response = await gifFetcher.searchGifs(title, offset);
         const gifs = await response.json();
         return gifs.data;
     } catch (error) {
-        console.error(`Error loadSearchGiph ${error}`);
+        console.error(`Error loading GIFs: ${error}`);
+        return [];
     }
-}
-
-/**
- * Searches for GIFs by title.
- * @param {string} title - The title to search for.
- * @returns {Promise<Array>} - A promise that resolves to an array of GIF objects.
- */
-export const searchGiphs = async (title = '', offset) => {
-    if (title) {
-        const searchResults = await loadSearchGifs(title, offset);
-        return searchResults;
-    }
-    return [];
-
-}
+};
 
 /**
  * Fetches and returns a random GIF.

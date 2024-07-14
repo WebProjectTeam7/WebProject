@@ -6,6 +6,7 @@ export const toTrendingView = (gifs) => `
   <div class="content">
     ${gifs.map(toGifSimple).join('\n')}
   </div>
+  <button class="show-more-button">Show More</button>
 </div>
 `;
 

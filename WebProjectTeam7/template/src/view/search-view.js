@@ -6,5 +6,6 @@ export const toSearchView = (giphs, searchTerm) => `
   <div class="content">
     ${giphs.map(toGifSimple).join('\n')}
   </div>
+  <button class="show-more-button">Show More</button>
 </div>
 `;

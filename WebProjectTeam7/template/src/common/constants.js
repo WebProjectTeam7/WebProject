@@ -8,7 +8,11 @@ export const UPLOAD = 'upload';
 
 export const MY_UPLOADS = 'my-uploads';
 
+export const SEARCH = 'search';
+
 export const ABOUT = 'about';
+
+export const DETAILS = 'details';
 
 export const CONTAINER_SELECTOR = '#container';
 

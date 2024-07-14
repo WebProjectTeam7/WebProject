@@ -1,6 +1,6 @@
-import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITES, HOME, CONTAINER_SELECTOR } from '../common/constants.js';
+import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITES, HOME, SEARCH, DETAILS, CONTAINER_SELECTOR } from '../common/constants.js';
 import { loadRandomGif, loadSingleGif, loadTrending, loadSearchGifs, loadGifsByIds } from '../requests/request-service.js';
-import { q, setActiveNav } from './helpers.js';
+import { getActiveNav, q, setActiveNav } from './helpers.js';
 import { toTrendingView, toSingleGifView } from '../view/gifs-view.js';
 import { toUploadView } from '../view/upload-view.js';
 import { toMyUploadsView } from '../view/my-uploads-view.js';
@@ -9,6 +9,8 @@ import { toAboutView } from '../view/about-view.js';
 import { toHomeView } from '../view/home-view.js';
 import { getUploads } from '../data/uploads-data.js';
 import { getFavorites } from '../data/favorites-data.js';
+import { renderSearchItems } from './search-events.js';
+import { LIMIT, OFFSET } from '../common/giphy-constants.js';
 
 // public API
 export const loadPage = (page = '') => {
@@ -21,6 +23,7 @@ export const loadPage = (page = '') => {
 
     case TRENDING:
         setActiveNav(TRENDING);
+        OFFSET[0] = 0;
         return renderTrending();
 
     case FAVORITES:
@@ -47,19 +50,19 @@ export const loadPage = (page = '') => {
 
 // private functions
 
-const renderHome = async() => {
-    const gifs = await loadSearchGifs('cats'); 
+const renderHome = async () => {
+    const gifs = await loadSearchGifs('cats');
 
     q(CONTAINER_SELECTOR).innerHTML = toHomeView(gifs);
 };
 
-export const renderTrending = async() => {
-    const trending = await loadTrending();
+export const renderTrending = async (offset = 0) => {
+    const trending = await loadTrending(offset);
 
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending);
 };
 
-const renderFavorites = async() => {
+const renderFavorites = async () => {
     const favorites = getFavorites();
     if (favorites.length === 0) {
         const randomGif = await loadRandomGif();
@@ -75,7 +78,7 @@ const renderUpload = () => {
     q(CONTAINER_SELECTOR).innerHTML = toUploadView();
 };
 
-const renderMyUploads = async() => {
+const renderMyUploads = async () => {
     const gifsIds = getUploads();
     const gifs = await loadGifsByIds(gifsIds);
 
@@ -86,8 +89,22 @@ const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();
 };
 
-export const renderGiftsDetails = async(gifId = null) => {
+export const renderGiftsDetails = async (gifId = null) => {
     const gif = await loadSingleGif(gifId);
 
     q(CONTAINER_SELECTOR).innerHTML = toSingleGifView(gif);
+    setActiveNav(DETAILS);
+}
+
+export const renderShowMore = async () => {
+    const page = getActiveNav();
+    if (page === TRENDING) {
+        OFFSET[0] += LIMIT;
+        await renderTrending(OFFSET[0]);
+        
+    } else if (page === SEARCH) {
+        const query = q('#search').value.trim();
+        OFFSET[0] += LIMIT;
+        await renderSearchItems(query, OFFSET[0]);
+    }
 }

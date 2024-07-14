@@ -6,9 +6,9 @@ import { GifFetcher } from '../utils/request-util.js';
 
 const gifFetcher = new GifFetcher();
 
-export const loadTrending = async() => {
+export const loadTrending = async(offset) => {
     try {
-        const response = await gifFetcher.trendingGifs();
+        const response = await gifFetcher.trendingGifs(offset);
         const gif = await response.json();
 
         return gif.data;
@@ -58,9 +58,9 @@ export const uploadGif = async(input) => {
     }
 }
 
-export const loadSearchGifs = async(searchTerm = '') => {
+export const loadSearchGifs = async(searchTerm = '', offset) => {
     try {
-        const response = await gifFetcher.searchGifs(searchTerm);
+        const response = await gifFetcher.searchGifs(searchTerm, offset);
         const gifs = await response.json();
         return gifs.data;
     } catch (error) {
@@ -68,9 +68,9 @@ export const loadSearchGifs = async(searchTerm = '') => {
     }
 }
 
-export const searchGiphs = async(title = '') => {
+export const searchGiphs = async(title = '', offset) => {
     if (title) {
-        const searchResults = await loadSearchGifs(title);
+        const searchResults = await loadSearchGifs(title, offset);
         return searchResults;
     } 
     return [];

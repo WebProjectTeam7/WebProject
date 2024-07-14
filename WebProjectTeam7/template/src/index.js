@@ -1,11 +1,12 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
 import { HOME } from './common/constants.js';
-import { loadPage, renderGiftsDetails, renderTrending } from './events/navigation-events.js';
+import { loadPage, renderGiftsDetails, renderTrending, renderShowMore } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
 import { uploadGif } from './requests/request-service.js';
 import { renderSearchItems } from './events/search-events.js';
 import { toggleFavoriteStatus } from './events/favorites.js';
+import { OFFSET } from './common/giphy-constants.js';
 
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (e.target.id === 'searchButton') {
+            OFFSET[0] = 0;
             const query = q('#search').value.trim();
             if (query) {
                 renderSearchItems(query);
@@ -38,10 +40,15 @@ document.addEventListener('DOMContentLoaded', async () => {
             const gifId = e.target.getAttribute('data-gif-id');
             renderGiftsDetails(gifId);
         }
+
+        if (e.target.classList.contains('show-more-button')) {
+            await renderShowMore();
+        }
+
     });
 
     document.addEventListener('submit', async (e) => {
-       
+
         if (e.target.classList.contains('upload-form')) {
             const spinner = document.querySelector('.spinner');
             spinner.style.display = 'block';
@@ -50,9 +57,9 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const file = document.getElementById('gif-file').files[0];
                 if (!file) {
                     alert('Please select a GIF file to upload.');
-                    return; 
+                } else {
+                    await uploadGif(file);
                 }
-                await uploadGif(file);
             } catch (e) {
                 console.error('Error: ', e.message);
             } finally {

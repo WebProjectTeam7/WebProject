@@ -18,6 +18,12 @@ export const setActiveNav = (page) => {
         );
 };
 
+export const getActiveNav = () => {
+    const activeLink = q('a.nav-link.active');
+
+    return activeLink.getAttribute('data-page');
+}
+
 export const renderFavoriteStatus = (giphyId) => {
     const favorites = getFavorites();
 

@@ -6,12 +6,11 @@ import { GifFetcher } from '../utils/request-util.js';
 
 const gifFetcher = new GifFetcher();
 
-export const loadTrending = async(offset) => {
 /**
  * Fetches and returns trending GIFs.
  * @returns {Promise<Array>} - A promise that resolves to an array of trending GIF objects.
  */
-export const loadTrending = async() => {
+export const loadTrending = async(offset) => {
     try {
         const response = await gifFetcher.trendingGifs(offset);
         const gif = await response.json();
@@ -79,32 +78,27 @@ export const uploadGif = async(input) => {
     }
 }
 
-export const loadSearchGifs = async(searchTerm = '', offset) => {
 /**
  * Searches for GIFs by a search term.
  * @param {string} searchTerm - The search term to use.
  * @returns {Promise<Array>} - A promise that resolves to an array of GIF objects.
  */
-export const loadSearchGifs = async(searchTerm = '') => {
+export const loadSearchGifs = async(searchTerm = '', offset) => {
     try {
         const response = await gifFetcher.searchGifs(searchTerm, offset);
         const gifs = await response.json();
         return gifs.data;
-        const response = await gifFetcher.searchGifs(searchTerm);
-        const gif = await response.json();
-        return gif.data;
     } catch (error) {
         console.error(`Error loadSearchGiph ${error}`);
     }
 }
 
-export const searchGiphs = async(title = '', offset) => {
 /**
  * Searches for GIFs by title.
  * @param {string} title - The title to search for.
  * @returns {Promise<Array>} - A promise that resolves to an array of GIF objects.
  */
-export const searchGiphs = async(title = '') => {
+export const searchGiphs = async(title = '', offset) => {
     if (title) {
         const searchResults = await loadSearchGifs(title, offset);
         return searchResults;

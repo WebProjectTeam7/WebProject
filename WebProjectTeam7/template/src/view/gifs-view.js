@@ -58,7 +58,7 @@ export const toGifDetailed = (gif) => `
       ${renderFavoriteStatus(gif.id)}
   </span>
     <p>Username: ${gif.username}</p>
-    <p>Plot: ${gif.description}</p>
+    <p>Time of upload: ${gif.import_datetime}</p>
   </div>
 </div>
 `;

@@ -8,10 +8,23 @@ import { renderFavoriteStatus } from '../events/helpers.js';
 export const toTrendingView = (gifs) => `
 <div id="gifs">
   <h1>Trending GIFs:</h1>
-  <div class="content">
+  <div id="container-trending" class="content">
     ${gifs.map(toGifSimple).join('\n')}
   </div>
   <button class="show-more-button">Show More</button>
+</div>
+`;
+
+/**
+ * Generates the HTML for displaying anonymous GIFs.
+ * @param {Array} gifs - Array of GIF objects to display.
+ * @returns {string} - HTML string for displaying trending GIFs.
+ */
+export const toShowMoreTrendingView = (gifs) => `
+<div id="gifs">
+  <div id="container-trending" class="content">
+    ${gifs.map(toGifSimple).join('\n')}
+  </div>
 </div>
 `;
 

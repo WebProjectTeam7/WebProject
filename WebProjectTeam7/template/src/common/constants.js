@@ -16,6 +16,10 @@ export const DETAILS = 'details';
 
 export const CONTAINER_SELECTOR = '#container';
 
+export const CONTAINER_SELECTOR_TRENDING = '#container-trending';
+
+export const CONTAINER_SELECTOR_SEARCH = '#container-search';
+
 export const FULL_HEART = '❤';
 
 export const EMPTY_HEART = '♡';

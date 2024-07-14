@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (e.target.id === 'searchButton') {
-            OFFSET[0] = 0;
             const query = q('#search').value.trim();
             if (query) {
+                OFFSET[0] = 0;
                 renderSearchItems(query);
             }
         }
@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
     })
-
 
     loadPage(HOME);
 });

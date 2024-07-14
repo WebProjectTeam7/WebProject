@@ -53,11 +53,11 @@ export class GifFetcher {
     }
 
     trendingGifs(offset = 0, limit = LIMIT) {
-        return this.#loadRequest(TRENDING_URL, [limit + offset, offset]);
+        return this.#loadRequest(TRENDING_URL, [limit, offset]);
     }
 
     searchGifs(query, offset = 0, limit = LIMIT,) {
-        return this.#loadRequest(SEARCH_URL, [query, limit + offset, offset]);
+        return this.#loadRequest(SEARCH_URL, [query, limit, offset]);
     }
 
     uploadGif(header) {

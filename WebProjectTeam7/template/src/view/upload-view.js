@@ -1,3 +1,8 @@
+
+/**
+ * Generates the HTML for displaying the upload form.
+ * @returns {string} - HTML string for displaying the upload form.
+ */
 export const toUploadView = () => `
 <div class="upload">
   <h2>Upload a GIF</h2>

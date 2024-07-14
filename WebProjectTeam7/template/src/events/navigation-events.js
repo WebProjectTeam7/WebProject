@@ -1,5 +1,5 @@
 import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITES, HOME, SEARCH, DETAILS, CONTAINER_SELECTOR } from '../common/constants.js';
-import { loadRandomGif, loadSingleGif, loadTrending, loadSearchGifs, loadGifsByIds } from '../requests/request-service.js';
+import { loadRandomGif, loadSingleGif, loadTrending, loadGifsByIds, searchGifs } from '../requests/request-service.js';
 import { getActiveNav, q, setActiveNav } from './helpers.js';
 import { toTrendingView, toSingleGifView } from '../view/gifs-view.js';
 import { toUploadView } from '../view/upload-view.js';
@@ -51,7 +51,7 @@ export const loadPage = (page = '') => {
 // private functions
 
 const renderHome = async () => {
-    const gifs = await loadSearchGifs('cats');
+    const gifs = await searchGifs('cats');
 
     q(CONTAINER_SELECTOR).innerHTML = toHomeView(gifs);
 };

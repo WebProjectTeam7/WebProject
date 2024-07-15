@@ -24,31 +24,26 @@ div#app {
 }
 
 header {
-  background: #333;
+  background: rgb(41, 7, 41) url(../images/back.gif) repeat center center;
+  background-size: 40% 100%;
   color: #fff;
   padding: 16px;
   text-align: center;
-  display: center;
-  justify-content: center;
-  align-items: center;
-  background-image: url(../images/css.gif);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 250px;
-
+  height: 300px;
+  overflow: hidden;
 }
 
 nav {
-  grid-area: menu;
-  height: 60px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   background-color: #413746;
   font-size: 1.75em;
   line-height: 60px;
-  padding: 10px;
+  padding: 20px;
   background-repeat: repeat;
   color: white;
-  display: flex;
+
 }
 
 .nav-link {
@@ -56,16 +51,24 @@ nav {
   text-decoration: none;
   margin: 0 10px;
   font-family: 'Roboto', sans-serif;
+  justify-content: space-between;
 }
 
 nav a {
   color: rgb(95, 191, 255);
   text-decoration: none;
-  margin: 0 10px;
+  margin: 8px 10px;
 }
 
 nav a:hover {
   color: rgb(198, 115, 247);
+}
+
+.nav-search {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  max-width: 900px;
 }
 
 #container {
@@ -91,10 +94,6 @@ a.active {
   font-weight: bold;
 }
 
-a.nav-link[data-page="search"] {
-  display: flex;
-  align-items: center;
-}
 
 input#search {
   font-size: 16px;
@@ -102,10 +101,16 @@ input#search {
   color: white;
   border: none;
   padding: 10px 14px;
-  border-radius: 4px 0 0 4px;
+  border-radius: 4px;
   outline: none;
   transition: background-color 0.3s ease, border 0.3s ease;
   flex: 1;
+}
+
+
+
+button#searchButton {
+  border-radius: 4px;
 }
 
 input#search:focus {
@@ -114,13 +119,19 @@ input#search:focus {
   border-right: none;
 }
 
+#searchButton i {
+  font-size: 1.2em;
+  color: white;
+}
+
+
 #searchButton {
   padding: 10px 20px;
   background-color: #a8a7a8;
   color: #fff;
   border: none;
   cursor: pointer;
-  border-radius: 0 4px 4px 0;
+  border-radius: 4px;
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.3s ease;
   display: inline-block;
@@ -648,43 +659,3 @@ div.movie-detailed div.movie-info {
 }
 
 /* End show more styles*/
-
-
-/* Message styles */
-
-#message-container {
-  position: fixed;
-  top: 50%; /* Position vertically at 50% from the top */
-  left: 50%; /* Position horizontally at 50% from the left */
-  transform: translate(-50%, -50%); /* Center the container */
-  background-color: #e1d6e0;
-  border: 1px solid #4e4343;
-  padding: 20px; /* Increase padding for larger container */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  display: none;
-  z-index: 1000;
-  text-align: center; /* Center align text and elements */
-}
-
-#message-container img {
-  max-width: 800px; /* Increase max-width for larger image */
-  display: block;
-  margin: 20px auto; /* Increase margin for better spacing */
-}
-
-#message-container button {
-  display: block;
-  margin: 20px auto; /* Increase margin for better spacing */
-  padding: 15px 30px; /* Increase padding for larger button */
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-#message-container button:hover {
-  background-color: #0056b3;
-}
-
-/* End Message styles */

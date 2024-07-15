@@ -1,20 +1,20 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
 import { HOME } from './common/constants.js';
+import { OFFSET, LIMIT } from './common/giphy-constants.js';
+import { uploadGif } from './requests/request-service.js';
 import { OFFSET } from './common/giphy-constants.js';
 import { loadPage, renderGiftsDetails, renderTrending, renderShowMore } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
-import { renderSearchItems } from './events/search-events.js';
+import { renderSearchItems, renderShowMoreSearchItems } from './events/search-events.js';
 import { toggleFavoriteStatus } from './events/favorites.js';
 import { handleInputChange, handleSubmitFile } from './events/upload-events.js';
 
 
 document.addEventListener('DOMContentLoaded', async () => {
 
-    // add global listener
     document.addEventListener('click', async (e) => {
 
-        // nav events
         if (e.target.classList.contains('nav-link')) {
             loadPage(e.target.getAttribute('data-page'));
         }
@@ -22,8 +22,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (e.target.id === 'searchButton') {
             const query = q('#search').value.trim();
             if (query) {
+                currentSearchTerm = query;
                 OFFSET[0] = 0;
-                renderSearchItems(query);
+                await renderSearchItems(query);
             }
         }
 
@@ -42,9 +43,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (e.target.classList.contains('show-more-button')) {
-            await renderShowMore();
+            if (currentSearchTerm) {
+                await renderShowMoreSearchItems(currentSearchTerm);
+            } else {
+                await renderShowMore();
+            }
         }
-
     });
 
     document.addEventListener('submit', async (e) => {

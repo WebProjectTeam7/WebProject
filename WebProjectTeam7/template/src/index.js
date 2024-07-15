@@ -2,11 +2,11 @@
 /* eslint-disable no-undef */
 import { HOME } from './common/constants.js';
 import { OFFSET } from './common/giphy-constants.js';
-import { uploadGif } from './requests/request-service.js';
 import { loadPage, renderGiftsDetails, renderTrending, renderShowMore } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
 import { renderSearchItems } from './events/search-events.js';
 import { toggleFavoriteStatus } from './events/favorites.js';
+import { handleInputChange, handleSubmitFile } from './events/upload-events.js';
 
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -50,21 +50,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.addEventListener('submit', async (e) => {
 
         if (e.target.classList.contains('upload-form')) {
-            const spinner = document.querySelector('.spinner');
-            spinner.style.display = 'block';
+            await handleSubmitFile();
+        }
+    });
 
-            try {
-                const file = document.getElementById('gif-file').files[0];
-                if (!file) {
-                    alert('Please select a GIF file to upload.');
-                } else {
-                    await uploadGif(file);
-                }
-            } catch (e) {
-                console.error('Error: ', e.message);
-            } finally {
-                spinner.style.display = 'none';
-            }
+    document.addEventListener('change', async (e) => {
+
+        if (e.target.classList.contains('gif-input')) {
+            await handleInputChange(e);
         }
     });
 

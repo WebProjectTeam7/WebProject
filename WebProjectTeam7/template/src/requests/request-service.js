@@ -2,6 +2,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable consistent-return */
 import { addUpload } from '../data/uploads-data.js';
+import { showMessage } from '../events/message-event.js';
 import { GifFetcher } from '../utils/request-util.js';
 
 const gifFetcher = new GifFetcher();
@@ -56,23 +57,34 @@ export const loadGifsByIds = async (gifIds = []) => {
 /**
  * Uploads a GIF file and adds it to the user's uploads.
  * @param {File} input - The GIF file to upload.
+ * @param {string} gifName - The GIF title.
+ * @param {Array} gifTags - Array of the GIF tags.
  * @returns {Promise<void>}
  */
-export const uploadGif = async (input) => {
-    const formData = new FormData();
-    formData.append('file', input);
+export const uploadGif = async (input, gifName = '', gifTags = []) => {
     try {
+        const formData = new FormData();
+        formData.append('file', input);
+        formData.append('title', gifName);
+        formData.append('tags', gifTags.join(','));
+
         const response = await gifFetcher.uploadGif({
             method: 'POST',
             body: formData
         });
 
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
         const gif = await response.json();
+
         addUpload(gif.data.id);
 
-        alert('GIF uploaded successfully!');    } catch (error) {
+        await showMessage('File uploaded successfully', 'images/gifs/success.gif');
+    } catch (error) {
         console.error('Error: ', error.message);
-        alert('Failed to upload GIF!');
+        await showMessage('Failed to upload GIF!', 'images/gifs/fail.gif');
     }
 };
 

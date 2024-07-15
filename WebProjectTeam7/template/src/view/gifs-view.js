@@ -30,7 +30,7 @@ export const toShowMoreTrendingView = (gifs) => `
 
 /**
  * Generates the HTML for displaying a simple GIF view.
- * @param {Object} gif - GIF object to display.
+ * @param {object} gif - GIF object to display.
  * @returns {string} - HTML string for displaying a simple GIF view.
  */
 export const toGifSimple = (gif) => `
@@ -45,7 +45,7 @@ export const toGifSimple = (gif) => `
 
 /**
  * Generates the HTML for displaying a single GIF view.
- * @param {Object} gif - GIF object to display.
+ * @param {object} gif - GIF object to display.
  * @returns {string} - HTML string for displaying a single GIF view.
  */
 export const toSingleGifView = (gif) => `
@@ -59,7 +59,7 @@ export const toSingleGifView = (gif) => `
 
 /**
  * Generates the HTML for displaying detailed GIF information.
- * @param {Object} gif - GIF object to display.
+ * @param {object} gif - GIF object to display.
  * @returns {string} - HTML string for displaying detailed GIF information.
  */
 export const toGifDetailed = (gif) => `

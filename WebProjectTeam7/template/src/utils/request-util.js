@@ -1,6 +1,7 @@
 import {
     API_KEY_1, API_KEY_2, API_KEY_3, LIMIT, GET_ID_URL,
-    GET_IDS_URL, TRENDING_URL, SEARCH_URL, UPLOAD_URL, RANDOM_URL
+    GET_IDS_URL, TRENDING_URL, SEARCH_URL, UPLOAD_URL, RANDOM_URL,
+    OFFSET
 } from '../common/giphy-constants.js';
 
 export class GifFetcher {
@@ -52,11 +53,11 @@ export class GifFetcher {
         return this.#loadRequest(GET_IDS_URL, [gidIds]);
     }
 
-    trendingGifs(offset = 0, limit = LIMIT) {
+    trendingGifs(offset = OFFSET[0], limit = LIMIT) {
         return this.#loadRequest(TRENDING_URL, [limit, offset]);
     }
 
-    searchGifs(query, offset = 0, limit = LIMIT,) {
+    searchGifs(query, offset = OFFSET[0], limit = LIMIT,) {
         return this.#loadRequest(SEARCH_URL, [query, limit, offset]);
     }
 

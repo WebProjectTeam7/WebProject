@@ -7,7 +7,6 @@ import { renderFavoriteStatus } from './helpers.js';
  * If the GIF is already a favorite, it is removed from the favorites list.
  * If the GIF is not a favorite, it is added to the favorites list.
  * The favorite status of all GIF elements on the page is updated.
- * 
  * @param {string} giphyId - The ID of the GIF to toggle the favorite status.
  */
 export const toggleFavoriteStatus = (giphyId) => {
@@ -24,7 +23,7 @@ export const toggleFavoriteStatus = (giphyId) => {
         const id = span.getAttribute('data-gif-id');
         span.innerHTML = renderFavoriteStatus(id);
     });
-    
+
     // Update the specific GIF element's favorite status
     // q(`span[data-gif-id="${giphyId}"]`).innerHTML = renderFavoriteStatus(giphyId);
 };

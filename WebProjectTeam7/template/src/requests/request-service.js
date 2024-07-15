@@ -10,21 +10,21 @@ const gifFetcher = new GifFetcher();
  * Fetches and returns trending GIFs.
  * @returns {Promise<Array>} - A promise that resolves to an array of trending GIF objects.
  */
-export const loadTrending = async (offset = 0) => {
+export const loadTrending = async () => {
     try {
-        const response = await gifFetcher.trendingGifs(offset);
+        const response = await gifFetcher.trendingGifs();
         const gif = await response.json();
 
         return gif.data;
     } catch (error) {
         console.error(`Error loading trending GIFs: ${error}`);
     }
-}
+};
 
 /**
  * Fetches and returns a single GIF by ID.
  * @param {string} gifId - The ID of the GIF to fetch.
- * @returns {Promise<Object>} - A promise that resolves to a GIF object.
+ * @returns {Promise<object>} - A promise that resolves to a GIF object.
  */
 export const loadSingleGif = async (gifId) => {
     try {
@@ -35,7 +35,7 @@ export const loadSingleGif = async (gifId) => {
     } catch (error) {
         console.error(`Error loading GIF: ${error}`);
     }
-}
+};
 
 /**
  * Fetches and returns GIFs by an array of IDs.
@@ -51,7 +51,7 @@ export const loadGifsByIds = async (gifIds = []) => {
     } catch (error) {
         console.error('Error loading: ', error.message);
     }
-}
+};
 
 /**
  * Uploads a GIF file and adds it to the user's uploads.
@@ -74,21 +74,20 @@ export const uploadGif = async (input) => {
         console.error('Error: ', error.message);
         alert('Failed to upload GIF!');
     }
-}
+};
 
 /**
  * Searches for GIFs by title.
  * @param {string} title - The title to search for.
- * @param {number} offset - The offset for pagination.
  * @returns {Promise<Array>} - A promise that resolves to an array of GIF objects.
  */
-export const searchGifs = async (title = '', offset = 0) => {
+export const searchGifs = async (title = '') => {
     if (!title) {
         return [];
     }
 
     try {
-        const response = await gifFetcher.searchGifs(title, offset);
+        const response = await gifFetcher.searchGifs(title);
         const gifs = await response.json();
         return gifs.data;
     } catch (error) {
@@ -99,7 +98,7 @@ export const searchGifs = async (title = '', offset = 0) => {
 
 /**
  * Fetches and returns a random GIF.
- * @returns {Promise<Object>} - A promise that resolves to a random GIF object.
+ * @returns {Promise<object>} - A promise that resolves to a random GIF object.
  */
 export const loadRandomGif = async () => {
     try {

@@ -4,7 +4,7 @@ import { toGifSimple } from './gifs-view.js';
  * Generates the HTML for displaying the user's favorite GIFs.
  * If no favorite GIFs are available, displays a random GIF.
  * @param {Array} giphy - Array of favorite GIF objects.
- * @param {Object} randomGif - A random GIF object to display if no favorites are available.
+ * @param {object} randomGif - A random GIF object to display if no favorites are available.
  * @returns {string} - HTML string for displaying the user's favorite GIFs or a random GIF.
  */
 export const toFavoritesView = (giphy, randomGif = null) => {
@@ -17,7 +17,7 @@ export const toFavoritesView = (giphy, randomGif = null) => {
   </div>
 </div>
 `;
-    } 
+    }
 
     return `
 <div id="favorites">

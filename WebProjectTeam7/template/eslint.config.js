@@ -62,7 +62,21 @@ export default [
             'space-in-parens': ['error', 'never'], // Disallow space inside parentheses
             'space-infix-ops': ['error', { 'int32Hint': false }], // Require spacing around infix operators
             'space-unary-ops': ['error', { 'words': true, 'nonwords': false }], // Enforce spacing before/after unary operators
-            'spaced-comment': ['error', 'always', { 'exceptions': ['-', '+'] }] // Require space after // or /* in comments
+            'spaced-comment': ['error', 'always', { 'exceptions': ['-', '+'] }], // Require space after // or /* in comments
+            'semi': ['error', 'always'],
+            'no-trailing-spaces': ['error'],
+            'padding-line-between-statements': [
+                'error',
+                { 'blankLine': 'always', 'prev': '*', 'next': 'block-like' },
+                { 'blankLine': 'always', 'prev': 'block-like', 'next': '*' },
+                { 'blankLine': 'always', 'prev': 'block-like', 'next': 'block-like' },
+                { 'blankLine': 'always', 'prev': '*', 'next': 'return' },
+                { 'blankLine': 'any', 'prev': '*', 'next': '*' }
+            ],
+            'no-multiple-empty-lines': [
+                'error',
+                { 'max': 2, 'maxEOF': 1, 'maxBOF': 1 }
+            ]
         },
     },
 ];

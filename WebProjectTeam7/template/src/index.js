@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 spinner.style.display = 'none';
             }
         }
-    })
+    });
 
     loadPage(HOME);
 });

@@ -36,7 +36,7 @@ export const getActiveNav = () => {
     const activeLink = q('a.nav-link.active');
 
     return activeLink.getAttribute('data-page');
-}
+};
 
 /**
  * Renders the favorite status of a GIF.

@@ -83,7 +83,7 @@ const renderMyUploads = async () => {
     const gifs = await loadGifsByIds(gifsIds);
 
     q(CONTAINER_SELECTOR).innerHTML = toMyUploadsView(gifs);
-}
+};
 
 const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();
@@ -94,18 +94,18 @@ export const renderGiftsDetails = async (gifId = null) => {
 
     q(CONTAINER_SELECTOR).innerHTML = toSingleGifView(gif);
     setActiveNav(DETAILS);
-}
+};
 
 export const renderShowMore = async () => {
     const page = getActiveNav();
     if (page === TRENDING) {
         OFFSET[0] += LIMIT;
-        const trending  = await loadTrending(OFFSET[0]);
-        q(CONTAINER_SELECTOR_TRENDING).innerHTML += toShowMoreTrendingView(trending);       
+        const trending  = await loadTrending();
+        q(CONTAINER_SELECTOR_TRENDING).innerHTML += toShowMoreTrendingView(trending);
     } else if (page === SEARCH) {
         const query = q('#search').value.trim();
         OFFSET[0] += LIMIT;
-        const search = await searchGifs(query, OFFSET[0]);
+        const search = await searchGifs(query);
         q(CONTAINER_SELECTOR_SEARCH).innerHTML += toShowMoreSearchView(search);
     }
-}
+};

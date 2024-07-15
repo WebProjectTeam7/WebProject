@@ -1,9 +1,3 @@
-export const API_KEY_1 = 'OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI';
-
-export const API_KEY_2 = 'QP47tkC3QL0v19NaNwo3Ebt678w7fsr5';
-
-export const API_KEY_3 = 'FgmzyU2tFbqdZELwi0q7RRN6Rur6OqAf';
-
 export const LIMIT = 21;
 
 export const OFFSET = [0];

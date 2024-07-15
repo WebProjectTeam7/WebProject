@@ -1,18 +1,19 @@
 import {
-    API_KEY_1, API_KEY_2, API_KEY_3, LIMIT, GET_ID_URL,
+    LIMIT, GET_ID_URL,
     GET_IDS_URL, TRENDING_URL, SEARCH_URL, UPLOAD_URL, RANDOM_URL,
     OFFSET
 } from '../common/giphy-constants.js';
 
 export class GifFetcher {
 
-    #API_KEYS = [];
+    #API_KEYS = ['OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI',
+        'QP47tkC3QL0v19NaNwo3Ebt678w7fsr5',
+        'FgmzyU2tFbqdZELwi0q7RRN6Rur6OqAf'];
 
     #position = 0;
 
-    constructor() {
-        this.#API_KEYS = [API_KEY_1, API_KEY_2, API_KEY_3];
-    }
+    constructor() { }
+
 
     #getApiKey() {
         return this.#API_KEYS[this.#position];

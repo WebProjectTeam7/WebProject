@@ -18,12 +18,9 @@ export const toggleFavoriteStatus = (giphyId) => {
         addFavorite(giphyId);
     }
 
-    // Update the favorite status of all GIF elements on the page
+    
     document.querySelectorAll('.favorite').forEach(span => {
         const id = span.getAttribute('data-gif-id');
         span.innerHTML = renderFavoriteStatus(id);
     });
-
-    // Update the specific GIF element's favorite status
-    // q(`span[data-gif-id="${giphyId}"]`).innerHTML = renderFavoriteStatus(giphyId);
 };

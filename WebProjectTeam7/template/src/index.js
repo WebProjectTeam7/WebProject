@@ -1,20 +1,18 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
 import { HOME } from './common/constants.js';
-import { OFFSET } from './common/giphy-constants.js';
+import { OFFSET, LIMIT } from './common/giphy-constants.js';
 import { uploadGif } from './requests/request-service.js';
 import { loadPage, renderGiftsDetails, renderTrending, renderShowMore } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
-import { renderSearchItems } from './events/search-events.js';
+import { renderSearchItems, renderShowMoreSearchItems } from './events/search-events.js';
 import { toggleFavoriteStatus } from './events/favorites.js';
 
-
 document.addEventListener('DOMContentLoaded', async () => {
+    let currentSearchTerm = ''; 
 
-    // add global listener
     document.addEventListener('click', async (e) => {
 
-        // nav events
         if (e.target.classList.contains('nav-link')) {
             loadPage(e.target.getAttribute('data-page'));
         }
@@ -22,9 +20,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (e.target.id === 'searchButton') {
             const query = q('#search').value.trim();
             if (query) {
+                currentSearchTerm = query;
                 OFFSET[0] = 0;
-                renderSearchItems(query);
+                await renderSearchItems(query);
             }
+        }
+
+        if (e.target.id === 'clearSearch') {
+            q('#search').value = '';
+            currentSearchTerm = ''; 
+            OFFSET[0] = 0;
         }
 
         if (e.target.classList.contains('view-trending-gif-btn')) {
@@ -42,9 +47,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         if (e.target.classList.contains('show-more-button')) {
-            await renderShowMore();
+            if (currentSearchTerm) {
+                await renderShowMoreSearchItems(currentSearchTerm);
+            } else {
+                await renderShowMore();
+            }
         }
-
     });
 
     document.addEventListener('submit', async (e) => {
@@ -64,6 +72,17 @@ document.addEventListener('DOMContentLoaded', async () => {
                 console.error('Error: ', e.message);
             } finally {
                 spinner.style.display = 'none';
+            }
+        }
+    });
+
+    document.addEventListener('keydown', async (e) => {
+        if (e.key === 'Enter') {
+            const query = q('#search').value.trim();
+            if (query) {
+                currentSearchTerm = query;
+                OFFSET[0] = 0;
+                await renderSearchItems(query);
             }
         }
     });

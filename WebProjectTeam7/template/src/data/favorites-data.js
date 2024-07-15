@@ -1,17 +1,13 @@
 /* eslint-disable no-undef */
-let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+let favorites = JSON.parse(localStorage.getItem('favorite')) || [];
 
 /**
  * Retrieves the list of favorite GIFs from localStorage or initializes an empty array if not found.
  * @type {Array}
  */
 export const addFavorite = (giphyId) => {
-    // if (favorites.find(id => id === giphyId)) return;
-
-    // favorites.push(giphyId);
     favorites = [giphyId];
-
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem('favorite', JSON.stringify(favorites));
 };
 
 /**
@@ -20,7 +16,7 @@ export const addFavorite = (giphyId) => {
  */
 export const removeFavorite = (giphyId) => {
     favorites = favorites.filter(id => id !== giphyId);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    localStorage.setItem('favorite', JSON.stringify(favorites));
 };
 
 

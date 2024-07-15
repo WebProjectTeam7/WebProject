@@ -1,4 +1,4 @@
-import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITES, HOME, SEARCH, DETAILS, CONTAINER_SELECTOR, CONTAINER_SELECTOR_TRENDING, CONTAINER_SELECTOR_SEARCH } from '../common/constants.js';
+import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITE, HOME, SEARCH, DETAILS, CONTAINER_SELECTOR, CONTAINER_SELECTOR_TRENDING, CONTAINER_SELECTOR_SEARCH } from '../common/constants.js';
 import { LIMIT, OFFSET } from '../common/giphy-constants.js';
 import { loadRandomGif, loadSingleGif, loadTrending, loadGifsByIds, searchGifs } from '../requests/request-service.js';
 import { getActiveNav, q, setActiveNav } from './helpers.js';
@@ -12,7 +12,6 @@ import { toMyUploadsView } from '../view/my-uploads-view.js';
 import { toShowMoreSearchView } from '../view/search-view.js';
 import { toAboutView } from '../view/about-view.js';
 
-// public API
 export const loadPage = (page = '') => {
 
     switch (page) {
@@ -26,8 +25,8 @@ export const loadPage = (page = '') => {
         OFFSET[0] = 0;
         return renderTrending();
 
-    case FAVORITES:
-        setActiveNav(FAVORITES);
+    case FAVORITE:
+        setActiveNav(FAVORITE);
         return renderFavorites();
 
     case UPLOAD:
@@ -42,13 +41,11 @@ export const loadPage = (page = '') => {
         setActiveNav(ABOUT);
         return renderAbout();
 
-        /* if the app supports error login, use default to log mapping errors */
     default: return null;
     }
 
 };
 
-// private functions
 
 const renderHome = async () => {
     const gifs = await searchGifs('cats');

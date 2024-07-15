@@ -1,5 +1,5 @@
-import { q, setActiveNav } from './helpers.js';
 import { CONTAINER_SELECTOR, SEARCH } from '../common/constants.js';
+import { q, setActiveNav } from './helpers.js';
 import { searchGifs } from '../requests/request-service.js';
 import { toSearchView } from '../view/search-view.js';
 

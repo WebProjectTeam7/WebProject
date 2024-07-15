@@ -32,6 +32,10 @@ export const setActiveNav = (page) => {
         );
 };
 
+/**
+ * Gets the current active page based on the active link.
+ * @returns {string} - Current active page name.
+ */
 export const getActiveNav = () => {
     const activeLink = q('a.nav-link.active');
 

@@ -25,7 +25,7 @@ export const removeFavorite = (giphyId) => {
 
 
 /**
- * Removes a GIF from the list of favorites.
- * @param {string} giphyId - The ID of the GIF to remove from favorites.
+ * Retrieves the list of favorite GIFs.
+ * @returns {Array} - An array containing the IDs of the favorite GIFs.
  */
 export const getFavorites = () => [...favorites];

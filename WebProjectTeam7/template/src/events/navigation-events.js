@@ -1,16 +1,16 @@
 import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITES, HOME, SEARCH, DETAILS, CONTAINER_SELECTOR, CONTAINER_SELECTOR_TRENDING, CONTAINER_SELECTOR_SEARCH } from '../common/constants.js';
+import { LIMIT, OFFSET } from '../common/giphy-constants.js';
 import { loadRandomGif, loadSingleGif, loadTrending, loadGifsByIds, searchGifs } from '../requests/request-service.js';
 import { getActiveNav, q, setActiveNav } from './helpers.js';
+import { getFavorites } from '../data/favorites-data.js';
+import { getUploads } from '../data/uploads-data.js';
+import { toHomeView } from '../view/home-view.js';
 import { toTrendingView, toSingleGifView, toShowMoreTrendingView } from '../view/gifs-view.js';
+import { toFavoritesView } from '../view/favorites-view.js';
 import { toUploadView } from '../view/upload-view.js';
 import { toMyUploadsView } from '../view/my-uploads-view.js';
-import { toFavoritesView } from '../view/favorites-view.js';
-import { toAboutView } from '../view/about-view.js';
-import { toHomeView } from '../view/home-view.js';
-import { getUploads } from '../data/uploads-data.js';
-import { getFavorites } from '../data/favorites-data.js';
-import { LIMIT, OFFSET } from '../common/giphy-constants.js';
 import { toShowMoreSearchView } from '../view/search-view.js';
+import { toAboutView } from '../view/about-view.js';
 
 // public API
 export const loadPage = (page = '') => {

@@ -1,12 +1,12 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
 import { HOME } from './common/constants.js';
+import { OFFSET } from './common/giphy-constants.js';
+import { uploadGif } from './requests/request-service.js';
 import { loadPage, renderGiftsDetails, renderTrending, renderShowMore } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
-import { uploadGif } from './requests/request-service.js';
 import { renderSearchItems } from './events/search-events.js';
 import { toggleFavoriteStatus } from './events/favorites.js';
-import { OFFSET } from './common/giphy-constants.js';
 
 
 document.addEventListener('DOMContentLoaded', async () => {

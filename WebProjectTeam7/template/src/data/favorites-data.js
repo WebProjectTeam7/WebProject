@@ -6,8 +6,10 @@ let favorites = JSON.parse(localStorage.getItem('favorite')) || [];
  * @type {Array}
  */
 export const addFavorite = (giphyId) => {
-    favorites = [giphyId];
-    localStorage.setItem('favorite', JSON.stringify(favorites));
+    if (!favorites.includes(giphyId)) {
+        favorites.push(giphyId);
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }   
 };
 
 /**

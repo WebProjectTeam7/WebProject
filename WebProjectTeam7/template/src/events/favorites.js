@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 import { addFavorite, getFavorites, removeFavorite } from '../data/favorites-data.js';
-import { renderFavoriteStatus } from './helpers.js';
+import { getActiveNav, renderFavoriteStatus } from './helpers.js';
+import { renderFavorites } from './navigation-events.js';
+
 
 /**
  * Toggles the favorite status of a GIF.
@@ -9,13 +11,16 @@ import { renderFavoriteStatus } from './helpers.js';
  * The favorite status of all GIF elements on the page is updated.
  * @param {string} giphyId - The ID of the GIF to toggle the favorite status.
  */
-export const toggleFavoriteStatus = (giphyId) => {
+export const toggleFavoriteStatus = async (giphyId) => {
     const favorites = getFavorites();
 
     if (favorites.includes(giphyId)) {
         removeFavorite(giphyId);
     } else {
         addFavorite(giphyId);
+    }
+    if (getActiveNav() === 'favorite') {
+        await renderFavorites();
     }
 
     document.querySelectorAll('.favorite').forEach(span => {

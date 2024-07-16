@@ -78,7 +78,7 @@ export const renderTrending = async () => {
  * @async
  * @returns {Promise<void>}
  */
-const renderFavorites = async () => {
+export const renderFavorites = async () => {
     const favorites = getFavorites();
     if (favorites.length === 0) {
         const randomGif = await loadRandomGif();

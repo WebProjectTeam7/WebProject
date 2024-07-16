@@ -3,7 +3,7 @@
  * Displays a message with a GIF and an OK button.
  * This function sets the inner HTML of a container element to show a message, a GIF image, 
  * and a button to close the message. The message container is then displayed.
- * @async 
+ * @async
  * @param {string} message - The message to display.
  * @param {string} gifUrl - The URL of the GIF to display.
  */

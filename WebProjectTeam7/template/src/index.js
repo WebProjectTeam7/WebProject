@@ -80,16 +80,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (e.target.classList.contains('gif-input')) {
             await handleInputChange(e);
         }
-
-        setTimeout(async () => {
-            if (dogOrCats === 'cats') {
-                await renderHome('dogs');
-                dogOrCats = 'dogs';
-            } else {
-                await renderHome('cats');
-                dogOrCats = 'cats';
-            }
-        }, 300);
+        if (e.target.classList.contains('switch-input')) {
+            setTimeout(async () => {
+                if (dogOrCats === 'cats') {
+                    await renderHome('dogs');
+                    dogOrCats = 'dogs';
+                } else {
+                    await renderHome('cats');
+                    dogOrCats = 'cats';
+                }
+            }, 300);
+        }
     });
 
     /**

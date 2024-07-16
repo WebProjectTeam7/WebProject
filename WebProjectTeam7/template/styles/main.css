@@ -807,6 +807,9 @@ input#search:focus {
 
 /* End Search button  */
 
+
+/* Switch button */
+
 .switch-container {
   display: inline-block;
   position: relative;
@@ -886,3 +889,5 @@ input#search:focus {
 .switch-input:checked + .switch-label .switch-handle {
   right: 0px;
 }
+
+/* End Switch button */

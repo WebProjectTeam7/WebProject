@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 /* eslint-disable no-undef */
 import { getFavorites } from '../data/favorites-data.js';
 import { FULL_HEART, EMPTY_HEART } from '../common/constants.js';
@@ -38,8 +39,9 @@ export const setActiveNav = (page) => {
  */
 export const getActiveNav = () => {
     const activeLink = q('a.nav-link.active');
-
-    return activeLink.getAttribute('data-page');
+    if (activeLink) {
+        return activeLink.getAttribute('data-page');
+    }
 };
 
 /**

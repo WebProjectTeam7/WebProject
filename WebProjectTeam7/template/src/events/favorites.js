@@ -19,7 +19,7 @@ export const toggleFavoriteStatus = async (giphyId) => {
     } else {
         addFavorite(giphyId);
     }
-    if (getActiveNav() === 'favorite') {
+    if (getActiveNav() && getActiveNav() === 'favorite') {
         await renderFavorites();
     }
 

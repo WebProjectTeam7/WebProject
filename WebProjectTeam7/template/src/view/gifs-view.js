@@ -49,12 +49,14 @@ export const toGifSimple = (gif) => `
  * @returns {string} - HTML string for displaying a single GIF view.
  */
 export const toSingleGifView = (gif) => `
+<a class="nav-link">
 <div id="gifs">
   <h1>${gif.title}</h1>
   <div class="content">
     ${toGifDetailed(gif)}
   </div>
 </div>
+<a>
 `;
 
 /**
@@ -63,6 +65,7 @@ export const toSingleGifView = (gif) => `
  * @returns {string} - HTML string for displaying detailed GIF information.
  */
 export const toGifDetailed = (gif) => `
+
 <div class="gif-detailed">
   <div class="poster">
     <img src="${gif.images.original.url}" alt="${gif.title}">
@@ -89,4 +92,5 @@ export const toGifDetailed = (gif) => `
     </div>
   </div>
 </div>
+</a>
 `;

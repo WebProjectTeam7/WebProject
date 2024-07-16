@@ -14,14 +14,34 @@ export class GifFetcher {
 
     #position = 0;
 
+    /**
+     * Retrieves the current API key.
+     * @private
+     * @returns {string} - The current API key.
+     */
     #getApiKey() {
         return this.#API_KEYS[this.#position];
     }
 
+    /**
+     * Switches to the next API key.
+     * @private
+     */
     #switchKey() {
         this.#position = (this.#position + 1) % this.#API_KEYS.length;
     }
 
+    /**
+     * Makes a network request using the provided request function and arguments.
+     * Retries with a different API key if a 429 status is received.
+     * @private
+     * @async
+     * @param {Function} request - The request function to call.
+     * @param {Array} [args=[]] - The arguments to pass to the request function.
+     * @param {Object} [header=null] - The headers to include in the request.
+     * @returns {Promise<Response>} - The network response.
+     * @throws {Error} - If the network request fails.
+     */
     async #loadRequest(request, args = [], header = null) {
         let tries = this.#API_KEYS.length;
         let response;
@@ -45,26 +65,58 @@ export class GifFetcher {
         return response;
     }
 
+    /**
+     * Fetches a GIF by its ID.
+     * @param {string} gifId - The ID of the GIF to fetch.
+     * @returns {Promise<Response>} - The network response.
+     */
     byId(gifId) {
         return this.#loadRequest(GET_ID_URL, [gifId]);
     }
 
+    /**
+     * Fetches GIFs by their IDs.
+     * @param {Array<string>} gidIds - The IDs of the GIFs to fetch.
+     * @returns {Promise<Response>} - The network response.
+     */
     byIds(gidIds) {
         return this.#loadRequest(GET_IDS_URL, [gidIds]);
     }
 
+    /**
+     * Fetches trending GIFs.
+     * @param {number} [offset=OFFSET[0]] - The offset for pagination.
+     * @param {number} [limit=LIMIT] - The limit for the number of GIFs to fetch.
+     * @returns {Promise<Response>} - The network response.
+     */
     trendingGifs(offset = OFFSET[0], limit = LIMIT) {
         return this.#loadRequest(TRENDING_URL, [limit, offset]);
     }
 
+    /**
+     * Searches for GIFs based on a query.
+     * @param {string} query - The search query.
+     * @param {number} [offset=OFFSET[0]] - The offset for pagination.
+     * @param {number} [limit=LIMIT] - The limit for the number of GIFs to fetch.
+     * @returns {Promise<Response>} - The network response.
+     */
     searchGifs(query, offset = OFFSET[0], limit = LIMIT,) {
         return this.#loadRequest(SEARCH_URL, [query, limit, offset]);
     }
 
+    /**
+     * Uploads a GIF.
+     * @param {Object} header - The headers to include in the request.
+     * @returns {Promise<Response>} - The network response.
+     */
     uploadGif(header) {
         return this.#loadRequest(UPLOAD_URL, [], header);
     }
 
+    /**
+     * Fetches a random GIF.
+     * @returns {Promise<Response>} - The network response.
+     */
     randomGif() {
         return this.#loadRequest(RANDOM_URL, []);
     }

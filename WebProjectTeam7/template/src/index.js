@@ -3,13 +3,21 @@ import { HOME } from './common/constants.js';
 import { OFFSET } from './common/giphy-constants.js';
 import { loadPage, renderGiftsDetails, renderTrending, renderShowMore } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
-import { renderSearchItems, renderShowMoreSearchItems } from './events/search-events.js';
+import { renderSearchItems } from './events/search-events.js';
 import { toggleFavoriteStatus } from './events/favorites.js';
 import { handleInputChange, handleSubmitFile } from './events/upload-events.js';
 
+/**
+ * Initializes the application by adding event listeners and loading the home page.
+ * @async
+ */
 document.addEventListener('DOMContentLoaded', async () => {
     let currentSearchTerm = '';
 
+    /**
+     * Handles click events within the document.
+     * @param {Event} e - The click event.
+     */
     document.addEventListener('click', async (e) => {
 
         if (e.target.classList.contains('nav-link')) {
@@ -51,6 +59,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     });
 
+    /**
+     * Handles submit events within the document.
+     * @param {Event} e - The submit event.
+     */
     document.addEventListener('submit', async (e) => {
 
         if (e.target.classList.contains('upload-form')) {
@@ -58,6 +70,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    /**
+     * Handles change events within the document.
+     * @param {Event} e - The change event.
+     */
     document.addEventListener('change', async (e) => {
 
         if (e.target.classList.contains('gif-input')) {
@@ -65,6 +81,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
+    /**
+     * Handles keydown events within the document.
+     * @param {Event} e - The keydown event.
+     */
     document.addEventListener('keydown', async (e) => {
         if (e.key === 'Enter') {
             const query = q('#search').value.trim();

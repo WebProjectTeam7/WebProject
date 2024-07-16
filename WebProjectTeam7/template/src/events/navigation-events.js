@@ -12,6 +12,11 @@ import { toMyUploadsView } from '../view/my-uploads-view.js';
 import { toShowMoreSearchView } from '../view/search-view.js';
 import { toAboutView } from '../view/about-view.js';
 
+/**
+ * Loads the specified page and renders its content.
+ * @param {string} [page=''] - The page to load.
+ * @returns {null}
+ */
 export const loadPage = (page = '') => {
 
     switch (page) {
@@ -46,19 +51,33 @@ export const loadPage = (page = '') => {
 
 };
 
-
+/**
+ * Renders the home page with GIFs based on the search term 'cats'.
+ * @async
+ * @returns {Promise<void>}
+ */
 const renderHome = async () => {
     const gifs = await searchGifs('cats');
 
     q(CONTAINER_SELECTOR).innerHTML = toHomeView(gifs);
 };
 
+/**
+ * Renders the trending GIFs.
+ * @async
+ * @returns {Promise<void>}
+ */
 export const renderTrending = async () => {
     const trending = await loadTrending();
 
     q(CONTAINER_SELECTOR).innerHTML = toTrendingView(trending);
 };
 
+/**
+ * Renders the favorites page with the user's favorite GIFs or a random GIF if there are no favorites.
+ * @async
+ * @returns {Promise<void>}
+ */
 const renderFavorites = async () => {
     const favorites = getFavorites();
     if (favorites.length === 0) {
@@ -71,10 +90,19 @@ const renderFavorites = async () => {
     }
 };
 
+/**
+ * Renders the upload page.
+ * @returns {void}
+ */
 const renderUpload = () => {
     q(CONTAINER_SELECTOR).innerHTML = toUploadView();
 };
 
+/**
+ * Renders the user's uploads page with the GIFs they have uploaded.
+ * @async
+ * @returns {Promise<void>}
+ */
 const renderMyUploads = async () => {
     let gifs = [];
 
@@ -90,10 +118,21 @@ const renderMyUploads = async () => {
     q(CONTAINER_SELECTOR).innerHTML = toMyUploadsView(gifs);
 };
 
+/**
+ * Renders the about page.
+ * @returns {void}
+ */
 const renderAbout = () => {
     q(CONTAINER_SELECTOR).innerHTML = toAboutView();
 };
 
+/**
+ * Renders the detailed view of a GIF.
+ * @async
+ * @param {string} [gifId=null] - The ID of the GIF to load details for.
+ * @param {string} [gifTitle=''] - The title of the GIF to set.
+ * @returns {Promise<void>}
+ */
 export const renderGiftsDetails = async (gifId = null, gifTitle = '') => {
     const gif = await loadSingleGif(gifId);
     if (gifTitle.length > 0) {
@@ -104,6 +143,12 @@ export const renderGiftsDetails = async (gifId = null, gifTitle = '') => {
     setActiveNav(DETAILS);
 };
 
+/**
+ * Renders more GIFs for the current page (either trending or search results).
+ * @async
+ * @param {string} [searchTerm=''] - The search term to use if loading more search results.
+ * @returns {Promise<void>}
+ */
 export const renderShowMore = async (searchTerm = '') => {
     const page = getActiveNav();
     if (page === TRENDING) {

@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadPage(e.target.getAttribute('data-page'));
         }
 
-        if (e.target.id === 'searchButton') {
+        if (e.target.id === 'search-button') {
             const query = q('#search').value.trim();
             if (query) {
                 currentSearchTerm = query;
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         }
 
-        if (e.target.id === 'clearSearch') {
+        if (e.target.id === 'clear-search') {
             q('#search').value = '';
             currentSearchTerm = '';
             OFFSET[0] = 0;

@@ -250,44 +250,6 @@ input#search:focus {
 
 /* End homepage styles */
 
-/* div.movie-detailed {
-  padding: 20px;
-  border: 1px solid rgb(97, 71, 97);
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
-  display: table;
-  width: 100%;
-}
-
-div.movie-detailed p {
-  font-size: 1.25em;
-  color: #eee;
-}
-
-div.movie-detailed div.poster {
-  width: 30%;
-  display: table-cell;
-  padding: 20px;
-  margin: 10px;
-  border-right: 1px solid rgb(112, 112, 112);
-}
-
-div.movie-detailed div.poster img {
-  width: 100%;
-}
-
-div.movie-detailed div.movie-info {
-  padding: 20px;
-  margin: 10px;
-  vertical-align: top;
-  display: table-cell;
-  text-align: left;
-  width: 70%;
-  /* height: 100%; *
-} */
-
-/*End movies styles */
-
 
 /* About styles */
 
@@ -327,9 +289,8 @@ div.movie-detailed div.movie-info {
 /* End about styles */
 
 
+/* Loading Spinner styles */
 
-
-/*Loading Spinner */
 .spinner {
   display: none;
   position: fixed;
@@ -349,6 +310,8 @@ div.movie-detailed div.movie-info {
   width: 200px;
   height: 200px;
 }
+
+/* End spinner styles */
 
 
 /* Trending styles */
@@ -511,6 +474,7 @@ div.movie-detailed div.movie-info {
 /* End Favorites page styles */
 
 /* Detailed GIF view styling */
+
 #container h1 {
   text-align: center;
   width: 100%;
@@ -519,18 +483,91 @@ div.movie-detailed div.movie-info {
 
 .gif-detailed {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
   border: 1px solid rgb(97, 71, 97);
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
-  text-align: center;
   margin: 10px auto;
-  width: 50%;
-  max-width: 400px;
+  width: 80%; 
 }
+
+.poster {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.poster img {
+  height: 480;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.poster img.expanded {
+  transform: scale(1.5);
+  z-index: 10;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.expansion-button {
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-right: 10px; 
+}
+
+.expansion-button:hover {
+  background-color: #0056b3;
+}
+
+.gif-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.gif-info p {
+  margin: 5px 0;
+  color: #fffdfd;
+  font-size: 16px;
+}
+
+.gif-info .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 10%;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.username-container {
+  display: flex;
+  align-items: center;
+}
+
+.username-container p {
+  margin: 0;
+  margin-right: 10px;
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+}
+
 
 /* End Detailed GIF view styling */
 

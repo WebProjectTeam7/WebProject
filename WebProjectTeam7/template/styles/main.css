@@ -250,7 +250,7 @@ input#search:focus {
 
 /* End homepage styles */
 
-div.movie-detailed {
+/* div.movie-detailed {
   padding: 20px;
   border: 1px solid rgb(97, 71, 97);
   background-color: rgba(0, 0, 0, 0.5);
@@ -286,7 +286,7 @@ div.movie-detailed div.movie-info {
   /* height: 100%; */
 }
 
-/* End movies styles */
+End movies styles */
 
 
 /* About styles */
@@ -665,28 +665,28 @@ div.movie-detailed div.movie-info {
 
 #message-container {
   position: fixed;
-  top: 50%; /* Position vertically at 50% from the top */
-  left: 50%; /* Position horizontally at 50% from the left */
-  transform: translate(-50%, -50%); /* Center the container */
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #e1d6e0;
   border: 1px solid #4e4343;
-  padding: 20px; /* Increase padding for larger container */
+  padding: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   display: none;
   z-index: 1000;
-  text-align: center; /* Center align text and elements */
+  text-align: center;
 }
 
 #message-container img {
-  max-width: 800px; /* Increase max-width for larger image */
+  max-width: 800px;
   display: block;
-  margin: 20px auto; /* Increase margin for better spacing */
+  margin: 20px auto;
 }
 
 #message-container button {
   display: block;
-  margin: 20px auto; /* Increase margin for better spacing */
-  padding: 15px 30px; /* Increase padding for larger button */
+  margin: 20px auto;
+  padding: 15px 30px;
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -701,16 +701,16 @@ div.movie-detailed div.movie-info {
 /* End Message styles */
 
 /* Search container */
-.search-container {
+#search-container {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
-  max-width: 500px; /* Adjust as needed */
+  max-width: 500px;
 }
 
 /* Search input field */
-.search-container input#search {
+#search-container input#search {
   font-size: 16px;
   background-color: rgb(41, 7, 41);
   color: white;
@@ -723,7 +723,7 @@ div.movie-detailed div.movie-info {
 }
 
 /* Clear search button (X) */
-.search-container button#clear-search {
+#search-container button#clear-search {
   position: absolute;
   right: 10px;
   top: 50%;
@@ -736,13 +736,13 @@ div.movie-detailed div.movie-info {
   display: none; 
 }
 
-.search-container input#search:focus {
+#search-container input#search:focus {
   background-color: rgb(60, 10, 60);
   border: 1px solid #a8a7a8;
  
 }
 
-.search-container input#search:not(:placeholder-shown) + button#clear-search {
+#search-container input#search:not(:placeholder-shown) + button#clear-search {
   display: block; 
 }
 

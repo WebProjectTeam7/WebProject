@@ -6,14 +6,13 @@ import {
 
 export class GifFetcher {
 
-    #API_KEYS = ['OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI',
+    #API_KEYS = [
+        'OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI',
         'QP47tkC3QL0v19NaNwo3Ebt678w7fsr5',
-        'FgmzyU2tFbqdZELwi0q7RRN6Rur6OqAf'];
+        'FgmzyU2tFbqdZELwi0q7RRN6Rur6OqAf'
+    ];
 
     #position = 0;
-
-    constructor() { }
-
 
     #getApiKey() {
         return this.#API_KEYS[this.#position];

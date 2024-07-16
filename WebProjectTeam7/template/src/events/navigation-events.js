@@ -104,16 +104,15 @@ export const renderGiftsDetails = async (gifId = null, gifTitle = '') => {
     setActiveNav(DETAILS);
 };
 
-export const renderShowMore = async () => {
+export const renderShowMore = async (searchTerm = '') => {
     const page = getActiveNav();
     if (page === TRENDING) {
         OFFSET[0] += LIMIT;
         const trending = await loadTrending();
         q(CONTAINER_SELECTOR_TRENDING).innerHTML += toShowMoreTrendingView(trending);
     } else if (page === SEARCH) {
-        const query = q('#search').value.trim();
         OFFSET[0] += LIMIT;
-        const search = await searchGifs(query);
+        const search = await searchGifs(searchTerm);
         q(CONTAINER_SELECTOR_SEARCH).innerHTML += toShowMoreSearchView(search);
     }
 };

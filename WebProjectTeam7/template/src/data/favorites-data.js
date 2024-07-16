@@ -9,7 +9,7 @@ export const addFavorite = (giphyId) => {
     if (!favorites.includes(giphyId)) {
         favorites.push(giphyId);
         localStorage.setItem('favorites', JSON.stringify(favorites));
-    }   
+    }
 };
 
 /**

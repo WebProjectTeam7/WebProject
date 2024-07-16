@@ -56,8 +56,8 @@ export const loadPage = (page = '') => {
  * @async
  * @returns {Promise<void>}
  */
-const renderHome = async () => {
-    const gifs = await searchGifs('cats');
+export const renderHome = async (key = 'cats') => {
+    const gifs = await searchGifs(key);
 
     q(CONTAINER_SELECTOR).innerHTML = toHomeView(gifs);
 };

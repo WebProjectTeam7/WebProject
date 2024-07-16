@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { HOME } from './common/constants.js';
 import { OFFSET } from './common/giphy-constants.js';
-import { loadPage, renderGiftsDetails, renderTrending, renderShowMore } from './events/navigation-events.js';
+import { loadPage, renderGiftsDetails, renderTrending, renderShowMore, renderHome } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
 import { renderSearchItems } from './events/search-events.js';
 import { toggleFavoriteStatus } from './events/favorites.js';
@@ -13,6 +13,7 @@ import { handleInputChange, handleSubmitFile } from './events/upload-events.js';
  */
 document.addEventListener('DOMContentLoaded', async () => {
     let currentSearchTerm = '';
+    let dogOrCats = 'cats';
 
     /**
      * Handles click events within the document.
@@ -79,6 +80,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (e.target.classList.contains('gif-input')) {
             await handleInputChange(e);
         }
+
+        setTimeout(async () => {
+            if (dogOrCats === 'cats') {
+                await renderHome('dogs');
+                dogOrCats = 'dogs';
+            } else {
+                await renderHome('cats');
+                dogOrCats = 'cats';
+            }
+        }, 300);
     });
 
     /**

@@ -804,3 +804,85 @@ input#search:focus {
   background-color: #666;
   transform: scale(0.95);
 }
+
+/* End Search button  */
+
+.switch-container {
+  display: inline-block;
+  position: relative;
+  width: 120px;
+  height: 40px;
+}
+
+.switch-input {
+  display: none;
+}
+
+.switch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  margin: 0;
+  position: relative;
+  background-color: #e6e6e6;
+}
+
+.switch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: margin 0.3s ease-in-out;
+  line-height: 40px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.switch-inner:before,
+.switch-inner:after {
+  content: attr(data-on);
+  float: left;
+  width: 50%;
+  height: 40px;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 40px;
+  border-radius: 20px 0 0 20px;
+}
+
+.switch-inner:after {
+  content: attr(data-off);
+  background-color: #ff4500;
+  color: #fff;
+  border-radius: 0 20px 20px 0;
+}
+
+.switch-handle {
+  display: block;
+  width: 60px;
+  height: 40px;
+  background: #fff;
+  border: 2px solid #ccc;
+  border-radius: 20px;
+  position: absolute;
+  top: -2px;
+  bottom: 0;
+  right: 60px;
+  transition: all 0.3s ease-in-out;
+}
+
+.switch-input:checked + .switch-label .switch-inner {
+  margin-left: 0;
+}
+
+.switch-input:checked + .switch-label .switch-handle {
+  right: 0px;
+}

@@ -698,7 +698,7 @@ input#search:focus {
 
 /* Message styles */
 
-#message-container {
+#container-message {
   position: fixed;
   top: 50%; 
   left: 50%;
@@ -712,13 +712,13 @@ input#search:focus {
   text-align: center;
 }
 
-#message-container img {
+#container-message img {
   max-width: 800px;
   display: block;
   margin: 20px auto;
 }
 
-#message-container button {
+#container-message button {
   display: block;
   margin: 20px auto;
   padding: 15px 30px;
@@ -729,7 +729,7 @@ input#search:focus {
   cursor: pointer;
 }
 
-#message-container button:hover {
+#container-message button:hover {
   background-color: #0056b3;
 }
 

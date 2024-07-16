@@ -20,6 +20,10 @@ export const CONTAINER_SELECTOR_TRENDING = '#container-trending';
 
 export const CONTAINER_SELECTOR_SEARCH = '#container-search';
 
+export const CONTAINER_SELECTOR_HOME = '#container-home';
+
+export const CONTAINER_SELECTOR_MESSAGE = '#container-message';
+
 export const FULL_HEART = '❤';
 
 export const EMPTY_HEART = '♡';

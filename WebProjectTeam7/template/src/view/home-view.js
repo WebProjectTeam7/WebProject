@@ -26,12 +26,22 @@ export const toHomeView = (gifs) => `
           </label>
         </div>
       </ul>
-      <img src="${gifs ? gifs[0].images.downsized.url : 'images/gifs/loading.gif'}" class="gif top-left" alt="GIF 1">
-      <img src="${gifs ? gifs[1].images.downsized.url : 'images/gifs/loading.gif'}" class="gif top-right" alt="GIF 2">
-      <img src="${gifs ? gifs[2].images.downsized.url : 'images/gifs/loading.gif'}" class="gif bottom-left-1" alt="GIF 3">
-      <img src="${gifs ? gifs[3].images.downsized.url : 'images/gifs/loading.gif'}" class="gif bottom-left-2" alt="GIF 4">
-      <img src="${gifs ? gifs[4].images.downsized.url : 'images/gifs/loading.gif'}" class="gif bottom-right-1" alt="GIF 5">
-      <img src="${gifs ? gifs[5].images.downsized.url : 'images/gifs/loading.gif'}" class="gif bottom-right-2" alt="GIF 6">
+    <div id="container-home">
+      <!-- start placeholders -->
+
+      <!-- end placeholders -->
+    </div>
     </div>
   </div>
 `;
+
+export const toHomeViewGifs = (gifs) => `
+  <div>
+    <img src="${gifs ? gifs[0].images.downsized.url : 'images/gifs/loading.gif'}" class="gif top-left" alt="GIF 1">
+    <img src="${gifs ? gifs[1].images.downsized.url : 'images/gifs/loading.gif'}" class="gif top-right" alt="GIF 2">
+    <img src="${gifs ? gifs[2].images.downsized.url : 'images/gifs/loading.gif'}" class="gif bottom-left-1" alt="GIF 3">
+    <img src="${gifs ? gifs[3].images.downsized.url : 'images/gifs/loading.gif'}" class="gif bottom-left-2" alt="GIF 4">
+    <img src="${gifs ? gifs[4].images.downsized.url : 'images/gifs/loading.gif'}" class="gif bottom-right-1" alt="GIF 5">
+    <img src="${gifs ? gifs[5].images.downsized.url : 'images/gifs/loading.gif'}" class="gif bottom-right-2" alt="GIF 6">
+  </div>
+  `;

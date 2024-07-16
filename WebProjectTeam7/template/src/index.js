@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { HOME } from './common/constants.js';
 import { OFFSET } from './common/giphy-constants.js';
-import { loadPage, renderGiftsDetails, renderTrending, renderShowMore, renderHome } from './events/navigation-events.js';
+import { loadPage, renderGiftsDetails, renderTrending, renderShowMore, renderHomeViewGifs } from './events/navigation-events.js';
 import { q } from './events/helpers.js';
 import { renderSearchItems } from './events/search-events.js';
 import { toggleFavoriteStatus } from './events/favorites.js';
@@ -44,10 +44,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             OFFSET[0] = 0;
             await renderTrending(+e.target.getAttribute('data-gif-id'));
         }
+
         if (e.target.classList.contains('favorite-button') || e.target.classList.contains('favorite')) {
             const gifId = e.target.getAttribute('data-gif-id') || e.target.parentNode.getAttribute('data-gif-id');
             toggleFavoriteStatus(gifId);
         }
+
         if (e.target.classList.contains('details-button')) {
             const gifId = e.target.getAttribute('data-gif-id');
             const gifTitle = e.target.getAttribute('data-gif-title');
@@ -83,10 +85,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (e.target.classList.contains('switch-input')) {
             setTimeout(async () => {
                 if (dogOrCats === 'cats') {
-                    await renderHome('dogs');
+                    await renderHomeViewGifs('dogs');
                     dogOrCats = 'dogs';
                 } else {
-                    await renderHome('cats');
+                    await renderHomeViewGifs('cats');
                     dogOrCats = 'cats';
                 }
             }, 300);

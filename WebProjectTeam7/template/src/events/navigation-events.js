@@ -1,10 +1,10 @@
-import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITE, HOME, SEARCH, DETAILS, CONTAINER_SELECTOR, CONTAINER_SELECTOR_TRENDING, CONTAINER_SELECTOR_SEARCH } from '../common/constants.js';
+import { ABOUT, TRENDING, UPLOAD, MY_UPLOADS, FAVORITE, HOME, SEARCH, DETAILS, CONTAINER_SELECTOR, CONTAINER_SELECTOR_TRENDING, CONTAINER_SELECTOR_SEARCH, CONTAINER_SELECTOR_HOME } from '../common/constants.js';
 import { LIMIT, OFFSET } from '../common/giphy-constants.js';
 import { loadRandomGif, loadSingleGif, loadTrending, loadGifsByIds, searchGifs } from '../requests/request-service.js';
 import { getActiveNav, q, setActiveNav } from './helpers.js';
 import { getFavorites } from '../data/favorites-data.js';
 import { getUploads } from '../data/uploads-data.js';
-import { toHomeView } from '../view/home-view.js';
+import { toHomeView, toHomeViewGifs } from '../view/home-view.js';
 import { toTrendingView, toSingleGifView, toShowMoreTrendingView } from '../view/gifs-view.js';
 import { toFavoritesView } from '../view/favorites-view.js';
 import { toUploadView } from '../view/upload-view.js';
@@ -14,8 +14,8 @@ import { toAboutView } from '../view/about-view.js';
 
 /**
  * Loads the specified page and renders its content.
- * @param {string} [page=''] - The page to load.
- * @returns {null}
+ * @param {string} [page] - The page to load.
+ * @returns {Function} - renders page;
  */
 export const loadPage = (page = '') => {
 
@@ -56,10 +56,15 @@ export const loadPage = (page = '') => {
  * @async
  * @returns {Promise<void>}
  */
-export const renderHome = async (key = 'cats') => {
-    const gifs = await searchGifs(key);
+export const renderHome = async () => {
+    q(CONTAINER_SELECTOR).innerHTML = toHomeView();
 
-    q(CONTAINER_SELECTOR).innerHTML = toHomeView(gifs);
+    renderHomeViewGifs('cats');
+};
+
+export const renderHomeViewGifs = async (query) => {
+    const gifs = await searchGifs(query);
+    q(CONTAINER_SELECTOR_HOME).innerHTML = toHomeViewGifs(gifs);
 };
 
 /**
@@ -129,8 +134,8 @@ const renderAbout = () => {
 /**
  * Renders the detailed view of a GIF.
  * @async
- * @param {string} [gifId=null] - The ID of the GIF to load details for.
- * @param {string} [gifTitle=''] - The title of the GIF to set.
+ * @param {string} [gifId] - The ID of the GIF to load details for.
+ * @param {string} [gifTitle] - The title of the GIF to set.
  * @returns {Promise<void>}
  */
 export const renderGiftsDetails = async (gifId = null, gifTitle = '') => {
@@ -146,7 +151,7 @@ export const renderGiftsDetails = async (gifId = null, gifTitle = '') => {
 /**
  * Renders more GIFs for the current page (either trending or search results).
  * @async
- * @param {string} [searchTerm=''] - The search term to use if loading more search results.
+ * @param {string} [searchTerm] - The search term to use if loading more search results.
  * @returns {Promise<void>}
  */
 export const renderShowMore = async (searchTerm = '') => {

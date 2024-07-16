@@ -57,15 +57,15 @@ export const loadGifsByIds = async (gifIds = []) => {
 /**
  * Uploads a GIF file and adds it to the user's uploads.
  * @param {File} input - The GIF file to upload.
- * @param {string} gifName - The GIF title.
+ * @param {string} gifTitle - The GIF title.
  * @param {Array} gifTags - Array of the GIF tags.
  * @returns {Promise<void>}
  */
-export const uploadGif = async (input, gifName = '', gifTags = []) => {
+export const uploadGif = async (input, gifTitle = '', gifTags = []) => {
     try {
         const formData = new FormData();
         formData.append('file', input);
-        formData.append('title', gifName);
+        formData.append('title', gifTitle);
         formData.append('tags', gifTags.join(','));
 
         const response = await gifFetcher.uploadGif({
@@ -79,7 +79,7 @@ export const uploadGif = async (input, gifName = '', gifTags = []) => {
 
         const gif = await response.json();
 
-        addUpload(gif.data.id);
+        addUpload(gif.data.id, gifTitle);
 
         await showMessage('File uploaded successfully', 'images/gifs/success.gif');
     } catch (error) {

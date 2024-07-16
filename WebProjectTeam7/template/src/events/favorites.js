@@ -18,7 +18,6 @@ export const toggleFavoriteStatus = (giphyId) => {
         addFavorite(giphyId);
     }
 
-    
     document.querySelectorAll('.favorite').forEach(span => {
         const id = span.getAttribute('data-gif-id');
         span.innerHTML = renderFavoriteStatus(id);

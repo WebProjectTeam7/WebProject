@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+import { getUploadsTitles } from '../data/uploads-data.js';
 import { uploadGif } from '../requests/request-service.js';
 import { q } from './helpers.js';
 import { showMessage } from './message-event.js';
@@ -8,13 +9,17 @@ export const handleSubmitFile = async () => {
     spinner.style.display = 'block';
     try {
         const file = document.getElementById('gif-file').files[0];
-        const gifName = document.getElementById('gif-name').value;
+        const gifTitle = document.getElementById('gif-title').value;
         const tags = document.getElementById('gif-tags').value.split(',').map(tag => tag.trim());
 
         if (!file) {
             await showMessage('Select a GIF file to upload.', 'images/gifs/dis.gif');
+        } else if (gifTitle.trim().length === 0) {
+            await showMessage('GIF has to have a name.', 'images/gifs/dis.gif');
+        } else if (getUploadsTitles().includes(gifTitle)) {
+            await showMessage(`GIF with name ${gifTitle} already exists.`, 'images/gifs/another.gif');
         } else {
-            await uploadGif(file, gifName, tags);
+            await uploadGif(file, gifTitle, tags);
         }
     } catch (e) {
         console.error('Error: ', e.message);
@@ -42,3 +47,4 @@ export const handleInputChange = async (event) => {
         previewContainer.style.display = 'none';
     }
 };
+

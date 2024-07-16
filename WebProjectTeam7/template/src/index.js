@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         if (e.target.classList.contains('details-button')) {
             const gifId = e.target.getAttribute('data-gif-id');
-            renderGiftsDetails(gifId);
+            const gifTitle = e.target.getAttribute('data-gif-title');
+            renderGiftsDetails(gifId, gifTitle);
         }
 
         if (e.target.classList.contains('show-more-button')) {

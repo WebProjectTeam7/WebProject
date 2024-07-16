@@ -36,7 +36,7 @@ export const toShowMoreTrendingView = (gifs) => `
 export const toGifSimple = (gif) => `
 <div class="gif">
   <img src="${gif.images.fixed_height.url}" alt="${gif.title}"><br>
-  <button class="details-button" data-gif-id="${gif.id}">View Details</button>
+  <button class="details-button" data-gif-id="${gif.id}" data-gif-title="${gif.title}">View Details</button>
   <button class="favorite-button" data-gif-id="${gif.id}">
   ${renderFavoriteStatus(gif.id)}
   </button>

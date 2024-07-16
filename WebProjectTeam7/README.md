@@ -21,8 +21,7 @@ Welcome to the Giphy API Project! This web application allows users to search fo
 4. **Upload GIF:** Upload your own GIFs to the Giphy platform.
 5. **My Uploads:** View the GIFs you have uploaded.
 6. **Search:** Search for GIFs using keywords.
-7. **Responsive Design:** Ensures the app works well on both desktop and mobile devices.
-8. **Advertisement Placeholder:** A section for displaying advertisements.
+7. **Advertisement Placeholder:** A section for displaying advertisements.
 
 ### 4. Technologies UsedFunctional Requirement
 
@@ -31,7 +30,6 @@ Welcome to the Giphy API Project! This web application allows users to search fo
 3. **JavaScript:** Programming language for implementing the functionality.
 4. **Giphy API:** API for fetching and managing GIFs.
 5. **Google Fonts:** For custom font styling.
-6. **Module Bundler:** (e.g., Webpack) for bundling JavaScript modules (if used).
 
 ### 5. General Requirements
 
@@ -47,11 +45,7 @@ Welcome to the Giphy API Project! This web application allows users to search fo
 * Use external libraries such as Bootstrap, Materialize or other to style your project.
 * External libraries such as jQuery UI, Kendo UI or other for custom controls are allowed.
 
-### 6. Teamwork Guidelines
-
-Refer to the teamwork guidelines document found along with the project requirements.
-
-### 7. Usage
+### 6. Usage
 
 1. **Navigate the app:**
 
@@ -69,14 +63,14 @@ Refer to the teamwork guidelines document found along with the project requireme
 
    View the GIFs you have uploaded on the My Uploads page.
 
-### 8. Project Structure
+### 7. Project Structure
 
 * `index.html`: Main HTML file for the application.
 * `styles/main.css`: CSS file for styling the application.
 * `src/index.js`: JavaScript file containing the main functionality.
 * `images/gifs/loading.gif`: Loading spinner image.
 
-### 9. Credits
+### 8. Credits
 
 * Developed as a teamwork assignment by [Team 7].
 * Contributors: [Danail Yordanov, Stefan Stoyanov, Lilyana Palikova]

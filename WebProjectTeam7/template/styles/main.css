@@ -149,7 +149,6 @@ input#search:focus {
 
 /* Homepage styles */
 
-
 #home {
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.5);
@@ -193,60 +192,41 @@ input#search:focus {
   padding: 0;
   margin: 0;
   font-size: 20px;
+  width: 100%;
+  text-align: center;
 }
 
 .content ul li {
   margin-bottom: 10px;
 }
 
+.gifs-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
 .home-view .gif {
-  position: absolute;
   width: 200px;
   height: 200px;
   transition: all 0.5s ease;
 }
 
-.home-view .gif.top-left {
-  top: 80px;
-  left: 200px;
-}
-
-.home-view .gif.top-right {
-  top: 30px;
-  right: 220px;
-}
-
-.home-view .gif.bottom-left-1 {
-  bottom: 150px;
-  left: 50px;
-}
-
-.home-view .gif.bottom-left-2 {
-  bottom: 5px;
-  left: 240px;
-}
-
-.home-view .gif.bottom-right-1 {
-  bottom: 230px;
-  right: 100px;
-}
-
-.home-view .gif.bottom-right-2 {
-  bottom: 80px;
-  right: 260px;
-}
-
-.home-view .gif.bottom-right-3 {
-  bottom: 10px;
-  right: 450px;
-}
-
+/* Media query to handle smaller screens */
 @media (max-width: 1300px) {
-  .home-view .gif {
-    position: static;
-    margin: 10px 0;
+  .gifs-container {
+    flex-direction: column;
+    align-items: center;
   }
 }
+
 
 /* End homepage styles */
 

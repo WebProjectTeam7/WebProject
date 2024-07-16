@@ -64,33 +64,32 @@ export const toSingleGifView = (gif) => `
  * @param {object} gif - GIF object to display.
  * @returns {string} - HTML string for displaying detailed GIF information.
  */
-export const toGifDetailed = (gif) => `
-
-<div class="gif-detailed">
-  <div class="poster">
-    <img src="${gif.images.original.url}" alt="${gif.title}">
-    <div class="button-container">
-      <span class="favorite-button" data-gif-id="${gif.id}">
-        ${renderFavoriteStatus(gif.id)}
-      </span>
+export const toGifDetailed = (gif) =>`
+  <div class="gif-detailed">
+    <div class="poster">
+      <img src="${gif.images.original.url}" alt="${gif.title}">
+        <div class="button-container">
+          <span class="favorite-button" data-gif-id="${gif.id}">
+            ${renderFavoriteStatus(gif.id)}
+          </span>
+        </div>
     </div>
-  </div>
-  <div class="gif-info">
-    <div class="info-container">
-      <div class="username-container">
-        <p>Username: ${gif.username ? gif.username : 'anonymous user'}</p>
-        <img class="avatar" src="${gif.user && gif.user.avatar_url ? gif.user.avatar_url : 'images/gifs/anonymous.gif'}">
-      </div>
-      <p>Time of upload: ${gif.import_datetime}</p>
-      <p>Description: ${gif.user && gif.user.description ? gif.user.description : 'none'}</p>
-      <div class="username-container">
-        <p>Rating: </p>
-        <img class="avatar" src="${gif.rating === 'g' ? 'images/ratings/level1.png' :
+    <div class="gif-info">
+      <div class="info-container">
+        <div class="username-container">
+          <p>Username: ${gif.username ? gif.username : 'anonymous user'}</p>
+          <img class="avatar" src="${gif.user && gif.user.avatar_url ? gif.user.avatar_url : 'images/gifs/anonymous.gif'}">
+        </div>
+        <p>Time of upload: ${gif.import_datetime}</p>
+        <p>Description: ${gif.user && gif.user.description ? gif.user.description : 'none'}</p>
+        <div class="username-container">
+          <p>Rating: </p>
+          <img class="avatar" src="${gif.rating === 'g' ? 'images/ratings/level1.png' :
         gif.rating === 'pg' ? 'images/ratings/level2.png' :
             gif.rating === 'pg-13' ? 'images/ratings/level3.png' : 'images/ratings/level4.png'}">
-      </div>  
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </a>
 `;

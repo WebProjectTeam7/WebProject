@@ -283,10 +283,10 @@ div.movie-detailed div.movie-info {
   display: table-cell;
   text-align: left;
   width: 70%;
-  /* height: 100%; */
-}
+  /* height: 100%; *
+} */
 
-End movies styles */
+/*End movies styles */
 
 
 /* About styles */

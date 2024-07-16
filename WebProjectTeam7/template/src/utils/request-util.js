@@ -6,7 +6,7 @@ import {
 
 export class GifFetcher {
 
-    #API_KEYS = [
+    API_KEYS = [
         'OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI',
         'QP47tkC3QL0v19NaNwo3Ebt678w7fsr5',
         'FgmzyU2tFbqdZELwi0q7RRN6Rur6OqAf'
@@ -20,7 +20,7 @@ export class GifFetcher {
      * @returns {string} - The current API key.
      */
     #getApiKey() {
-        return this.#API_KEYS[this.#position];
+        return this.API_KEYS[this.#position];
     }
 
     /**
@@ -28,7 +28,7 @@ export class GifFetcher {
      * @private
      */
     #switchKey() {
-        this.#position = (this.#position + 1) % this.#API_KEYS.length;
+        this.#position = (this.#position + 1) % this.API_KEYS.length;
     }
 
     /**
@@ -43,7 +43,7 @@ export class GifFetcher {
      * @throws {Error} - If the network request fails.
      */
     async #loadRequest(request, args = [], header = null) {
-        let tries = this.#API_KEYS.length;
+        let tries = this.API_KEYS.length;
         let response;
         while (tries > 0) {
             try {

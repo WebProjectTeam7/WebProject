@@ -29,10 +29,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (e.target.id === 'clear-search') {
             q('#search').value = '';
             currentSearchTerm = '';
-            OFFSET[0] = 0;
         }
 
         if (e.target.classList.contains('view-trending-gif-btn')) {
+            OFFSET[0] = 0;
             await renderTrending(+e.target.getAttribute('data-gif-id'));
         }
         if (e.target.classList.contains('favorite-button') || e.target.classList.contains('favorite')) {
@@ -42,15 +42,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (e.target.classList.contains('details-button')) {
             const gifId = e.target.getAttribute('data-gif-id');
             const gifTitle = e.target.getAttribute('data-gif-title');
-            renderGiftsDetails(gifId, gifTitle);
+            await renderGiftsDetails(gifId, gifTitle);
         }
 
         if (e.target.classList.contains('show-more-button')) {
-            if (currentSearchTerm) {
-                await renderShowMoreSearchItems(currentSearchTerm);
-            } else {
-                await renderShowMore();
-            }
+            await renderShowMore(currentSearchTerm);
         }
 
     });

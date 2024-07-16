@@ -1,5 +1,3 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-undef */
 /* eslint-disable consistent-return */
 import { addUpload } from '../data/uploads-data.js';
 import { showMessage } from '../events/message-event.js';

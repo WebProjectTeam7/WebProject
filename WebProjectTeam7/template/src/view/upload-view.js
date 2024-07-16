@@ -9,7 +9,7 @@ export const toUploadView = () => `
     <div class="preview" style="display: none;">
       <img id="gif-preview" src="" alt="GIF Preview">
       <div class="details">
-        <input type="text" id="gif-name" placeholder="Enter GIF name">
+        <input type="text" id="gif-title" placeholder="Enter GIF name">
         <input type="text" id="gif-tags" placeholder="Enter GIF tags (comma separated)">
       </div>
     </div>

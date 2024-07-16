@@ -55,7 +55,7 @@ export default [
             'no-undef-init': 'error', // Disallow initializing variables to undefined
             'no-undefined': 'error', // Disallow the use of undefined as an identifier
             'no-unused-vars': 'warn', // Warn about variables that are declared but not used
-            'indent': ['error', 4], // Enforce consistent indentation of 2 spaces
+            'indent': ['error', 4, { 'SwitchCase': 1 }], // Enforce consistent indentation of 2 spaces
             'keyword-spacing': ['error', { 'before': true, 'after': true }], // Require space before and after keywords
             'space-before-blocks': ['error', 'always'], // Require space before blocks
             // 'space-before-function-paren': ['error', 'never'], // Disallow space before function parentheses

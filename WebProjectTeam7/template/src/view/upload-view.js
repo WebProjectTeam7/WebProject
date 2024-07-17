@@ -18,19 +18,3 @@ export const toUploadView = () => `
   </form>
 </div>
 `;
-
-/**
- * Generates the HTML for displaying a modal message during the upload process.
- * @returns {string} - HTML string for displaying the modal message.
- */
-export const uploadMessage = () => `
-<div id="uploadModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div id="modal-message">
-      <img id="modal-gif" src="" alt="Status GIF" />
-      <p id="modal-text"></p>
-    </div>
-  </div>
-</div>
-`;

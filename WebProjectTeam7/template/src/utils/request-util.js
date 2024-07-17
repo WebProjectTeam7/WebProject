@@ -37,8 +37,8 @@ export class GifFetcher {
      * @private
      * @async
      * @param {Function} request - The request function to call.
-     * @param {Array} [args=[]] - The arguments to pass to the request function.
-     * @param {Object} [header=null] - The headers to include in the request.
+     * @param {Array} [args] - The arguments to pass to the request function.
+     * @param {object} [header] - The headers to include in the request.
      * @returns {Promise<Response>} - The network response.
      * @throws {Error} - If the network request fails.
      */
@@ -85,8 +85,8 @@ export class GifFetcher {
 
     /**
      * Fetches trending GIFs.
-     * @param {number} [offset=OFFSET[0]] - The offset for pagination.
-     * @param {number} [limit=LIMIT] - The limit for the number of GIFs to fetch.
+     * @param {number} [offset] - The offset for pagination.
+     * @param {number} [limit] - The limit for the number of GIFs to fetch.
      * @returns {Promise<Response>} - The network response.
      */
     trendingGifs(offset = OFFSET[0], limit = LIMIT) {
@@ -96,8 +96,8 @@ export class GifFetcher {
     /**
      * Searches for GIFs based on a query.
      * @param {string} query - The search query.
-     * @param {number} [offset=OFFSET[0]] - The offset for pagination.
-     * @param {number} [limit=LIMIT] - The limit for the number of GIFs to fetch.
+     * @param {number} [offset] - The offset for pagination.
+     * @param {number} [limit] - The limit for the number of GIFs to fetch.
      * @returns {Promise<Response>} - The network response.
      */
     searchGifs(query, offset = OFFSET[0], limit = LIMIT,) {
@@ -106,7 +106,7 @@ export class GifFetcher {
 
     /**
      * Uploads a GIF.
-     * @param {Object} header - The headers to include in the request.
+     * @param {object} header - The headers to include in the request.
      * @returns {Promise<Response>} - The network response.
      */
     uploadGif(header) {

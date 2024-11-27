@@ -1,4 +1,6 @@
 /* eslint-disable no-undef */
+require('dotenv').config();
+
 import { HOME } from './common/constants.js';
 import { OFFSET } from './common/giphy-constants.js';
 import { loadPage, renderGiftsDetails, renderTrending, renderShowMore, renderHomeViewGifs } from './events/navigation-events.js';

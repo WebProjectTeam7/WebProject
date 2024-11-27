@@ -7,9 +7,9 @@ import {
 export class GifFetcher {
 
     #API_KEYS = [
-        'OTf7VIpal5Iv3WCOkWZluWCJ1irOjWfI',
-        'QP47tkC3QL0v19NaNwo3Ebt678w7fsr5',
-        'FgmzyU2tFbqdZELwi0q7RRN6Rur6OqAf'
+        process.env.API_KEY_1,
+        process.env.API_KEY_2,
+        process.env.API_KEY_3,
     ];
 
     #position = 0;
